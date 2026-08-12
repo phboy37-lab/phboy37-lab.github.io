@@ -176,22 +176,25 @@ header.site.transparent .navlinks a{
     background: #070c16 !important;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 4px;
-    padding: 0 32px;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 110px 32px 40px;
     display: none;
     opacity: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     transition: opacity 0.2s ease;
   }
   .navlinks.open{ display: flex !important; opacity: 1 !important; }
   .navlinks a{
-    padding: 18px 0;
+    padding: 16px 0;
     border-bottom: 1px solid var(--border);
     width: 100%;
     max-width: 280px;
     text-align: center;
     font-size: 17px;
     color: var(--text);
+    flex-shrink: 0;
   }
   .navlinks a:last-child{ border-bottom: none; }
   .navtoggle{
