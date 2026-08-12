@@ -3,11 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>벤트론 | Ventron — 자동차 외판 금형성형해석</title>
-<meta name="description" content="벤트론은 자동차 외판 금형성형해석을 전문으로 하는 엔지니어링 해석 기업입니다.">
+<title>벤트론 | Ventron — 자동차 램프 광학설계 및 해석</title>
+<meta name="description" content="벤트론은 자동차 램프 광학설계 및 해석을 중심으로, 외판 금형성형해석까지 다루는 엔지니어링 해석 기업입니다.">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="intro-lock">
+
+<div class="introOverlay" id="introOverlay" role="button" aria-label="눌러서 건너뛰기">
+  <div class="introLogoWrap">
+    <img src="img/logo-hero.jpg" alt="Ventron">
+    <div class="sweep"></div>
+    <div class="introTag">AUTOMOTIVE LAMP OPTICS &amp; STAMPING CAE</div>
+    <div class="skipcue">클릭하여 건너뛰기</div>
+  </div>
+</div>
 
 <header class="site transparent" id="siteHeader">
   <nav class="nav">
@@ -28,9 +37,9 @@
 <main>
   <section class="megahero">
     <div class="wrap">
-      <span class="eyebrow">AUTOMOTIVE STAMPING CAE</span>
-      <h1>결함은 금형 전에,<br>도면 위에서 <em>계산</em>합니다.</h1>
-      <p class="sub">벤트론은 자동차 외판 부품의 금형성형해석을 전문으로 하는 엔지니어링 해석 기업입니다. 개발 초기 단계의 시행착오를 시뮬레이션으로 줄이고, 양산 품질의 기준을 세웁니다.</p>
+      <span class="eyebrow">AUTOMOTIVE LAMP OPTICS</span>
+      <h1>빛은 점등되기 전에,<br>화면 위에서 <em>검증</em>합니다.</h1>
+      <p class="sub">벤트론은 자동차 램프의 광학설계 및 해석을 중심으로, 외판 부품의 금형성형해석까지 함께 다루는 엔지니어링 해석 기업입니다. 시제품 없이도 성능과 결함을 시뮬레이션으로 먼저 확인합니다.</p>
       <div class="ctas">
         <a href="business.html" class="btn btn-primary">사업분야 보기 <span class="btn-arrow">→</span></a>
         <a href="contact.html" class="btn btn-ghost">문의하기</a>
@@ -44,29 +53,29 @@
       <div class="showcard">
         <span class="num">01</span>
         <div>
-          <h3>두께 감소 예측</h3>
-          <p>프레스 성형 시 부위별 두께 분포를 계산해 이상 구간을 확인합니다.</p>
+          <h3>배광 성능 시뮬레이션</h3>
+          <p>광선추적 해석으로 배광 패턴과 광도 분포를 계산합니다.</p>
         </div>
       </div>
       <div class="showcard">
         <span class="num">02</span>
         <div>
-          <h3>파단 위험 분석</h3>
-          <p>성형한계도(FLD) 기반으로 파단 가능 구간을 미리 찾아냅니다.</p>
+          <h3>법규 기준 검토</h3>
+          <p>국내외 램프 법규 기준 충족 여부를 시뮬레이션 단계에서 확인합니다.</p>
         </div>
       </div>
       <div class="showcard">
         <span class="num">03</span>
         <div>
-          <h3>스프링백 보정</h3>
-          <p>성형 후 형상 복원값을 예측해 금형 설계에 반영합니다.</p>
+          <h3>광학 형상 최적화</h3>
+          <p>렌즈·리플렉터 형상을 해석 결과에 맞춰 수정 제안합니다.</p>
         </div>
       </div>
       <div class="showcard">
         <span class="num">04</span>
         <div>
-          <h3>금형 설계 최적화</h3>
-          <p>해석 결과를 바탕으로 공정·형상 개선안을 제안합니다.</p>
+          <h3>외판 성형해석 (보조)</h3>
+          <p>프레스 성형 시 두께 감소·파단 위험 구간을 함께 검토합니다.</p>
         </div>
       </div>
     </div>
@@ -105,7 +114,7 @@
       </div>
     </div>
     <div class="footmeta">
-      자동차 외판 금형성형해석<br>
+      자동차 램프 광학설계 및 해석 · 외판 금형성형해석<br>
       <a href="mailto:jbkim@ventron.co.kr">jbkim@ventron.co.kr</a> · <a href="contact.html">문의하기</a><br>
       © 2026 Ventron. All rights reserved.
     </div>
@@ -120,6 +129,19 @@
   };
   window.addEventListener('scroll', onScroll);
   onScroll();
+
+  const introOverlay = document.getElementById('introOverlay');
+  const unlock = () => {
+    document.body.classList.remove('intro-lock');
+    if (introOverlay) introOverlay.remove();
+  };
+  if (introOverlay){
+    introOverlay.addEventListener('click', unlock);
+    introOverlay.addEventListener('animationend', (e) => {
+      if (e.animationName === 'introOut') unlock();
+    });
+    setTimeout(unlock, 3600);
+  }
 </script>
 
 </body>
