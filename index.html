@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>벤트론 | Ventron — 자동차 성형·광학 엔지니어링 해석</title>
-<meta name="description" content="벤트론은 자동차 외판 금형성형해석과 램프 광학설계·해석을 전문으로 하는 엔지니어링 해석 기업입니다.">
+<meta name="description" content="벤트론은 자동차 외판 금형성형해석을 전문으로 하는 엔지니어링 해석 기업입니다.">
 <link rel="stylesheet" href="style.css">
 <style>
   .hero{
@@ -119,7 +119,7 @@
 
 <header class="site">
   <nav class="nav">
-    <a href="index.html" class="logo">VENTRON <span class="mark">/ 벤트론</span></a>
+    <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
     <button class="navtoggle" aria-label="메뉴 열기" onclick="document.querySelector('.navlinks').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
@@ -127,6 +127,7 @@
       <a href="index.html" class="active">홈</a>
       <a href="about.html">회사소개</a>
       <a href="business.html">사업분야</a>
+      <a href="insights.html">소식</a>
       <a href="contact.html">문의</a>
     </div>
   </nav>
@@ -135,16 +136,16 @@
 <main>
   <div class="wrap hero">
     <div>
-      <span class="eyebrow">AUTOMOTIVE ENGINEERING ANALYSIS</span>
-      <h1>형상은 <em>계산</em>되고,<br>빛은 <em>설계</em>됩니다.</h1>
-      <p class="lead">벤트론은 자동차 외판 금형성형해석과 램프 광학설계·해석을 전문으로 하는 엔지니어링 해석 기업입니다. 개발 초기 단계의 시행착오를 시뮬레이션으로 줄이고, 양산 품질의 기준을 세웁니다.</p>
+      <span class="eyebrow">AUTOMOTIVE STAMPING CAE</span>
+      <h1>결함은 <em>금형</em> 전에,<br>도면 위에서 <em>계산</em>합니다.</h1>
+      <p class="lead">벤트론은 자동차 외판 부품의 금형성형해석을 전문으로 하는 엔지니어링 해석 기업입니다. 개발 초기 단계의 시행착오를 시뮬레이션으로 줄이고, 양산 품질의 기준을 세웁니다.</p>
       <div class="ctas">
         <a href="business.html" class="btn btn-primary">사업분야 보기 <span class="btn-arrow">→</span></a>
         <a href="contact.html" class="btn btn-ghost">문의하기</a>
       </div>
     </div>
 
-    <div class="heroart" role="img" aria-label="광학 해석의 빛 경로와 금형성형해석의 단면 곡선을 결합한 기술 다이어그램">
+    <div class="heroart" role="img" aria-label="금형성형해석의 단면 곡선과 두께 분포 측정 노드를 표현한 기술 다이어그램">
       <svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- blueprint corner ticks -->
         <path d="M20 20H60M20 20V60" stroke="#233254" stroke-width="1"/>
@@ -152,47 +153,42 @@
         <text x="26" y="36" class="coord">X0 Y0</text>
         <text x="392" y="452" class="coord">X480 Y480</text>
 
-        <!-- light source + ray fan (optics) -->
-        <circle cx="64" cy="420" r="4" fill="#f2b84b"/>
-        <g stroke="#f2b84b" stroke-width="1.2">
-          <line class="ray" x1="64" y1="420" x2="360" y2="330"/>
-          <line class="ray" x1="64" y1="420" x2="380" y2="280"/>
-          <line class="ray" x1="64" y1="420" x2="392" y2="222"/>
-          <line class="ray" x1="64" y1="420" x2="392" y2="160"/>
-          <line class="ray" x1="64" y1="420" x2="382" y2="104"/>
-        </g>
-
         <!-- forming die cross-section curve (CAE) -->
-        <path class="formcurve" d="M60 130 C 160 90, 200 90, 240 150 C 275 205, 300 260, 360 250 C 400 243, 410 210, 430 190"
+        <path class="formcurve" d="M50 340 C 120 220, 150 140, 220 110 C 280 84, 330 100, 370 150 C 405 195, 400 250, 430 300"
               stroke="#4fd1e8" stroke-width="2"/>
-        <!-- mesh nodes along curve -->
-        <circle class="node" style="animation-delay:1.0s" cx="60" cy="130" r="3.5" fill="#4fd1e8"/>
-        <circle class="node" style="animation-delay:1.2s" cx="160" cy="93" r="3.5" fill="#4fd1e8"/>
-        <circle class="node" style="animation-delay:1.4s" cx="240" cy="150" r="3.5" fill="#4fd1e8"/>
-        <circle class="node" style="animation-delay:1.6s" cx="313" cy="238" r="3.5" fill="#4fd1e8"/>
-        <circle class="node" style="animation-delay:1.8s" cx="360" cy="250" r="3.5" fill="#4fd1e8"/>
-        <circle class="node" style="animation-delay:2.0s" cx="430" cy="190" r="3.5" fill="#4fd1e8"/>
 
-        <text x="240" y="410" text-anchor="middle" class="coord" fill="#57647a" letter-spacing="1">SECTION A-A · t=0.7mm</text>
+        <!-- thickness-risk mesh nodes along curve (green > amber > red like an FLD scan) -->
+        <circle class="node" style="animation-delay:1.0s" cx="50" cy="340" r="4" fill="#5fd08a"/>
+        <circle class="node" style="animation-delay:1.2s" cx="120" cy="222" r="4" fill="#5fd08a"/>
+        <circle class="node" style="animation-delay:1.4s" cx="184" cy="128" r="4" fill="#f2b84b"/>
+        <circle class="node" style="animation-delay:1.6s" cx="252" cy="94" r="4.5" fill="#e8615c"/>
+        <circle class="node" style="animation-delay:1.8s" cx="330" cy="100" r="4" fill="#f2b84b"/>
+        <circle class="node" style="animation-delay:2.0s" cx="385" cy="168" r="4" fill="#5fd08a"/>
+        <circle class="node" style="animation-delay:2.2s" cx="430" cy="300" r="4" fill="#5fd08a"/>
+
+        <line x1="252" y1="94" x2="252" y2="60" stroke="#e8615c" stroke-width="1" opacity="0.6"/>
+        <text x="252" y="52" text-anchor="middle" class="coord" fill="#e8615c">RISK t=0.61</text>
+
+        <text x="240" y="412" text-anchor="middle" class="coord" fill="#57647a" letter-spacing="1">SECTION A-A · BLANK t0=0.80mm</text>
       </svg>
     </div>
   </div>
 
   <section class="tight">
     <div class="wrap">
-      <span class="eyebrow">CORE CAPABILITIES</span>
+      <span class="eyebrow">CORE CAPABILITY</span>
       <div class="services" style="margin-top:28px;">
         <div class="svc forming">
-          <span class="tag">01 · STAMPING SIMULATION</span>
-          <h3>외판 금형성형해석</h3>
-          <p>자동차 외판 부품의 프레스 성형 과정을 시뮬레이션하여 두께 감소, 파단, 주름 등 성형 결함을 개발 초기에 예측하고 금형 설계를 최적화합니다.</p>
+          <span class="tag">두께 감소 · 파단 예측</span>
+          <h3>성형한계도(FLD) 기반 결함 예측</h3>
+          <p>프레스 성형 시 두께 분포와 파단 위험 구간을 사전에 계산하여, 시제품 제작 전에 문제 지점을 확인합니다.</p>
           <a class="more" href="business.html#forming">자세히 보기 →</a>
         </div>
-        <div class="svc optics">
-          <span class="tag">02 · LAMP OPTICS</span>
-          <h3>자동차 램프 광학설계 및 해석</h3>
-          <p>헤드램프·리어램프 등의 광학 시스템을 설계하고 배광 성능을 해석하여, 법규 기준 충족과 디자인 완성도를 함께 확보합니다.</p>
-          <a class="more" href="business.html#optics">자세히 보기 →</a>
+        <div class="svc forming">
+          <span class="tag">스프링백 · 주름</span>
+          <h3>금형 설계 최적화 제안</h3>
+          <p>스프링백 보정과 주름 발생 조건을 분석하여, 공정 조건과 금형 형상 수정안을 리포트로 정리해 전달합니다.</p>
+          <a class="more" href="business.html#forming">자세히 보기 →</a>
         </div>
       </div>
     </div>
@@ -213,10 +209,10 @@
 
 <footer class="site">
   <div class="wrap footgrid">
-    <a href="index.html" class="logo">VENTRON <span class="mark">/ 벤트론</span></a>
+    <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
     <div class="footmeta">
-      자동차 외판 금형성형해석 · 램프 광학설계 및 해석<br>
-      <a href="mailto:info@ventron.co.kr">info@ventron.co.kr</a> · <a href="contact.html">문의하기</a><br>
+      자동차 외판 금형성형해석<br>
+      <a href="mailto:jbkim@ventron.co.kr">jbkim@ventron.co.kr</a> · <a href="contact.html">문의하기</a><br>
       © 2026 Ventron. All rights reserved.
     </div>
   </div>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>성형한계도(FLD)로 두께 감소를 미리 보는 법 | 벤트론 Ventron</title>
+<meta name="description" content="프레스 성형 시뮬레이션에서 파단 위험 구간을 판단하는 기준을 정리합니다.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a href="../index.html" class="logo"><img src="../img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
+    <button class="navtoggle" aria-label="메뉴 열기" onclick="document.querySelector('.navlinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navlinks">
+      <a href="../index.html">홈</a>
+      <a href="../about.html">회사소개</a>
+      <a href="../business.html">사업분야</a>
+      <a href="../insights.html" class="active">소식</a>
+      <a href="../contact.html">문의</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap" style="padding: 76px 0 0;">
+    <div class="article">
+      <a href="../insights.html" class="backlink">← 소식 목록으로</a>
+      <span class="eyebrow">TECHNICAL NOTE</span>
+      <h1>성형한계도(FLD)로 두께 감소를 미리 보는 법</h1>
+      <p class="postmeta">2026.08.12 · 벤트론</p>
+      <p class="lead">프레스 성형 과정에서 소재는 부위마다 다르게 늘어나고 얇아집니다. 이 변화를 그래프 하나로 판단하는 도구가 성형한계도(FLD, Forming Limit Diagram)입니다.</p>
+
+      <div class="body">
+        <h2>성형한계도란</h2>
+        <p>성형한계도는 소재가 늘어나는 두 방향의 변형률(주변형률, 부변형률)을 좌표에 표시하고, 그 소재가 견딜 수 있는 한계선과 비교하는 그래프입니다. 시뮬레이션 결과의 각 지점을 이 그래프 위에 찍어보면, 어느 부위가 파단 위험에 가까운지 한눈에 확인할 수 있습니다.</p>
+
+        <h2>실무에서 보는 세 가지 구간</h2>
+        <ul>
+          <li><strong>안전 구간</strong>: 한계선과 충분한 여유가 있는 영역. 별도 조치가 필요하지 않습니다.</li>
+          <li><strong>주의 구간</strong>: 한계선에 근접한 영역. 공정 조건(블랭크 형상, 압력, 윤활)을 조정해 여유를 확보합니다.</li>
+          <li><strong>위험 구간</strong>: 한계선을 초과하는 영역. 금형 형상이나 소재 두께 자체의 변경이 필요할 수 있습니다.</li>
+        </ul>
+
+        <h2>왜 도면 단계에서 확인해야 하는가</h2>
+        <p>금형을 실제로 제작한 뒤 파단이 발견되면, 형상 수정과 재제작에 시간과 비용이 다시 들어갑니다. 반면 시뮬레이션 단계에서 성형한계도로 위험 구간을 먼저 찾으면, 금형 설계에 반영할 수정안을 제작 전에 정리할 수 있습니다.</p>
+        <p>벤트론은 이 과정을 리포트로 정리할 때, 위험 구간의 위치와 원인, 그리고 조정 가능한 옵션(형상·공정 조건)을 함께 제시합니다.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap footgrid">
+    <a href="../index.html" class="logo"><img src="../img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
+    <div class="footmeta">
+      자동차 외판 금형성형해석<br>
+      <a href="mailto:jbkim@ventron.co.kr">jbkim@ventron.co.kr</a> · <a href="../contact.html">문의하기</a><br>
+      © 2026 Ventron. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

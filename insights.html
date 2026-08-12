@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>소식 | 벤트론 Ventron</title>
+<meta name="description" content="벤트론의 기술 노트와 프로젝트 소식.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
+    <button class="navtoggle" aria-label="메뉴 열기" onclick="document.querySelector('.navlinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navlinks">
+      <a href="index.html">홈</a>
+      <a href="about.html">회사소개</a>
+      <a href="business.html">사업분야</a>
+      <a href="insights.html" class="active">소식</a>
+      <a href="contact.html">문의</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap pagehead">
+    <span class="eyebrow">INSIGHTS</span>
+    <h1>소식</h1>
+    <p>벤트론이 다루는 해석 사례와 기술적인 내용을 정리합니다.</p>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <!-- 새 글이 생기면 이 postrow 블록을 맨 위에 복사해서 추가하세요 -->
+      <div class="postlist">
+        <a class="postrow" href="posts/01-fld-thickness-check.html">
+          <span class="postdate">2026.08.12</span>
+          <div class="postmain">
+            <h3>성형한계도(FLD)로 두께 감소를 미리 보는 법</h3>
+            <p>프레스 성형 시뮬레이션에서 파단 위험 구간을 판단하는 기준을 정리합니다.</p>
+          </div>
+          <span class="postarrow">읽기 →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap footgrid">
+    <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
+    <div class="footmeta">
+      자동차 외판 금형성형해석<br>
+      <a href="mailto:jbkim@ventron.co.kr">jbkim@ventron.co.kr</a> · <a href="contact.html">문의하기</a><br>
+      © 2026 Ventron. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
