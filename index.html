@@ -3,135 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>벤트론 | Ventron — 자동차 성형·광학 엔지니어링 해석</title>
+<title>벤트론 | Ventron — 자동차 외판 금형성형해석</title>
 <meta name="description" content="벤트론은 자동차 외판 금형성형해석을 전문으로 하는 엔지니어링 해석 기업입니다.">
 <link rel="stylesheet" href="style.css">
-<style>
-  .hero{
-    padding: 84px 0 96px;
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 40px;
-    align-items: center;
-  }
-  @media (max-width: 900px){
-    .hero{ grid-template-columns: 1fr; padding: 56px 0 64px; }
-  }
-  .hero h1{
-    font-size: clamp(34px, 5vw, 54px);
-    line-height: 1.22;
-    margin-top: 20px;
-  }
-  .hero h1 em{
-    font-style: normal;
-    color: var(--accent-amber);
-  }
-  .hero p.lead{
-    color: var(--text-dim);
-    font-size: 17px;
-    max-width: 480px;
-    margin-top: 22px;
-  }
-  .hero .ctas{
-    display: flex;
-    gap: 12px;
-    margin-top: 34px;
-    flex-wrap: wrap;
-  }
-  .heroart{
-    position: relative;
-    aspect-ratio: 1 / 1;
-    max-width: 480px;
-    justify-self: center;
-  }
-  .heroart svg{ width: 100%; height: 100%; }
-
-  .brandsplash{
-    display: flex;
-    justify-content: center;
-    padding: 56px 0 8px;
-  }
-  .brandsplash img{
-    width: min(340px, 70vw);
-    height: auto;
-    display: block;
-  }
-  @media (max-width: 720px){
-    .brandsplash{ padding: 40px 0 4px; }
-  }
-
-  .ray{ animation: rayPulse 5s ease-in-out infinite; transform-origin: 64px 420px; }
-  .ray:nth-child(2){ animation-delay: 0.3s; }
-  .ray:nth-child(3){ animation-delay: 0.6s; }
-  .ray:nth-child(4){ animation-delay: 0.9s; }
-  .ray:nth-child(5){ animation-delay: 1.2s; }
-  @keyframes rayPulse{
-    0%, 100%{ opacity: 0.28; }
-    50%{ opacity: 0.75; }
-  }
-  .formcurve{
-    stroke-dasharray: 620;
-    stroke-dashoffset: 620;
-    animation: drawIn 2.2s cubic-bezier(.65,0,.35,1) 0.3s forwards;
-  }
-  @keyframes drawIn{ to{ stroke-dashoffset: 0; } }
-  .node{
-    animation: nodeIn 0.4s ease forwards;
-    opacity: 0;
-  }
-  @media (prefers-reduced-motion: reduce){
-    .formcurve{ stroke-dashoffset: 0; animation: none; }
-    .node{ opacity: 1; animation: none; }
-    .ray{ animation: none; opacity: 0.5; }
-  }
-  @keyframes nodeIn{ to{ opacity: 1; } }
-
-  .coord{ font-family: var(--font-mono); font-size: 9.5px; fill: var(--text-faint); }
-
-  .services{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  @media (max-width: 720px){ .services{ grid-template-columns: 1fr; } }
-  .svc{
-    background: var(--bg-panel);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 36px;
-    transition: border-color 0.25s ease, transform 0.25s ease;
-  }
-  .svc:hover{ transform: translateY(-3px); }
-  .svc.optics:hover{ border-color: var(--accent-amber); }
-  .svc.forming:hover{ border-color: var(--accent-cyan); }
-  .svc .tag{ margin-bottom: 18px; display:block; }
-  .svc h3{ font-size: 21px; margin-bottom: 14px; line-height: 1.4; }
-  .svc p{ color: var(--text-dim); font-size: 14.5px; margin: 0 0 22px; }
-  .svc a.more{
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--text);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .svc.optics a.more{ color: var(--accent-amber); }
-  .svc.forming a.more{ color: var(--accent-cyan); }
-
-  .strip{
-    display: flex;
-    gap: 48px;
-    align-items: flex-start;
-    flex-wrap: wrap;
-  }
-  .strip .stripcol{ flex: 1; min-width: 220px; }
-  .strip h2{ font-size: 24px; line-height: 1.5; max-width: 460px; }
-  .strip .stripcol.notes p{ color: var(--text-dim); font-size: 14.5px; margin: 0 0 14px; }
-</style>
 </head>
 <body>
 
-<header class="site">
+<header class="site transparent" id="siteHeader">
   <nav class="nav">
     <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
     <button class="navtoggle" aria-label="메뉴 열기" onclick="document.querySelector('.navlinks').classList.toggle('open')">
@@ -148,78 +26,71 @@
 </header>
 
 <main>
-  <div class="brandsplash">
-    <img src="img/logo-hero.jpg" alt="Ventron — Automotive Engineering">
-  </div>
-
-  <div class="wrap hero">
-    <div>
+  <section class="megahero">
+    <div class="wrap">
       <span class="eyebrow">AUTOMOTIVE STAMPING CAE</span>
-      <h1>결함은 <em>금형</em> 전에,<br>도면 위에서 <em>계산</em>합니다.</h1>
-      <p class="lead">벤트론은 자동차 외판 부품의 금형성형해석을 전문으로 하는 엔지니어링 해석 기업입니다. 개발 초기 단계의 시행착오를 시뮬레이션으로 줄이고, 양산 품질의 기준을 세웁니다.</p>
+      <h1>결함은 금형 전에,<br>도면 위에서 <em>계산</em>합니다.</h1>
+      <p class="sub">벤트론은 자동차 외판 부품의 금형성형해석을 전문으로 하는 엔지니어링 해석 기업입니다. 개발 초기 단계의 시행착오를 시뮬레이션으로 줄이고, 양산 품질의 기준을 세웁니다.</p>
       <div class="ctas">
         <a href="business.html" class="btn btn-primary">사업분야 보기 <span class="btn-arrow">→</span></a>
         <a href="contact.html" class="btn btn-ghost">문의하기</a>
       </div>
     </div>
+    <div class="scrollcue"><span class="line"></span>SCROLL</div>
+  </section>
 
-    <div class="heroart" role="img" aria-label="금형성형해석의 단면 곡선과 두께 분포 측정 노드를 표현한 기술 다이어그램">
-      <svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- blueprint corner ticks -->
-        <path d="M20 20H60M20 20V60" stroke="#233254" stroke-width="1"/>
-        <path d="M460 460H420M460 460V420" stroke="#233254" stroke-width="1"/>
-        <text x="26" y="36" class="coord">X0 Y0</text>
-        <text x="392" y="452" class="coord">X480 Y480</text>
-
-        <!-- forming die cross-section curve (CAE) -->
-        <path class="formcurve" d="M50 340 C 120 220, 150 140, 220 110 C 280 84, 330 100, 370 150 C 405 195, 400 250, 430 300"
-              stroke="#4fd1e8" stroke-width="2"/>
-
-        <!-- thickness-risk mesh nodes along curve (green > amber > red like an FLD scan) -->
-        <circle class="node" style="animation-delay:1.0s" cx="50" cy="340" r="4" fill="#5fd08a"/>
-        <circle class="node" style="animation-delay:1.2s" cx="120" cy="222" r="4" fill="#5fd08a"/>
-        <circle class="node" style="animation-delay:1.4s" cx="184" cy="128" r="4" fill="#f2b84b"/>
-        <circle class="node" style="animation-delay:1.6s" cx="252" cy="94" r="4.5" fill="#e8615c"/>
-        <circle class="node" style="animation-delay:1.8s" cx="330" cy="100" r="4" fill="#f2b84b"/>
-        <circle class="node" style="animation-delay:2.0s" cx="385" cy="168" r="4" fill="#5fd08a"/>
-        <circle class="node" style="animation-delay:2.2s" cx="430" cy="300" r="4" fill="#5fd08a"/>
-
-        <line x1="252" y1="94" x2="252" y2="60" stroke="#e8615c" stroke-width="1" opacity="0.6"/>
-        <text x="252" y="52" text-anchor="middle" class="coord" fill="#e8615c">RISK t=0.61</text>
-
-        <text x="240" y="412" text-anchor="middle" class="coord" fill="#57647a" letter-spacing="1">SECTION A-A · BLANK t0=0.80mm</text>
-      </svg>
-    </div>
-  </div>
-
-  <section class="tight">
-    <div class="wrap">
-      <span class="eyebrow">CORE CAPABILITY</span>
-      <div class="services" style="margin-top:28px;">
-        <div class="svc forming">
-          <span class="tag">두께 감소 · 파단 예측</span>
-          <h3>성형한계도(FLD) 기반 결함 예측</h3>
-          <p>프레스 성형 시 두께 분포와 파단 위험 구간을 사전에 계산하여, 시제품 제작 전에 문제 지점을 확인합니다.</p>
-          <a class="more" href="business.html#forming">자세히 보기 →</a>
+  <section class="tight" style="padding: 0;">
+    <div class="showcase">
+      <div class="showcard">
+        <span class="num">01</span>
+        <div>
+          <h3>두께 감소 예측</h3>
+          <p>프레스 성형 시 부위별 두께 분포를 계산해 이상 구간을 확인합니다.</p>
         </div>
-        <div class="svc forming">
-          <span class="tag">스프링백 · 주름</span>
-          <h3>금형 설계 최적화 제안</h3>
-          <p>스프링백 보정과 주름 발생 조건을 분석하여, 공정 조건과 금형 형상 수정안을 리포트로 정리해 전달합니다.</p>
-          <a class="more" href="business.html#forming">자세히 보기 →</a>
+      </div>
+      <div class="showcard">
+        <span class="num">02</span>
+        <div>
+          <h3>파단 위험 분석</h3>
+          <p>성형한계도(FLD) 기반으로 파단 가능 구간을 미리 찾아냅니다.</p>
+        </div>
+      </div>
+      <div class="showcard">
+        <span class="num">03</span>
+        <div>
+          <h3>스프링백 보정</h3>
+          <p>성형 후 형상 복원값을 예측해 금형 설계에 반영합니다.</p>
+        </div>
+      </div>
+      <div class="showcard">
+        <span class="num">04</span>
+        <div>
+          <h3>금형 설계 최적화</h3>
+          <p>해석 결과를 바탕으로 공정·형상 개선안을 제안합니다.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <section class="statement">
+    <div class="wrap">
+      <span class="eyebrow">OUR APPROACH</span>
+      <h2>해석은 결과가 아니라,<br><strong>결정을 위한 근거</strong>입니다.</h2>
+    </div>
+  </section>
+
   <section class="tight">
-    <div class="wrap strip">
-      <div class="stripcol">
-        <h2>해석은 결과가 아니라,<br>결정을 위한 근거입니다.</h2>
-      </div>
-      <div class="stripcol notes">
-        <p>벤트론은 현상을 재현하는 데 그치지 않고, 그 결과가 설계 변경으로 이어질 수 있도록 해석 리포트를 구성합니다.</p>
-        <p>완성차·부품사의 개발 일정에 맞춰 빠르게 검토하고, 필요한 시점에 필요한 데이터를 전달하는 것을 원칙으로 합니다.</p>
+    <div class="wrap">
+      <span class="eyebrow">LATEST</span>
+      <div class="postlist newsstrip" style="margin-top:28px;">
+        <a class="postrow" href="posts/01-fld-thickness-check.html">
+          <span class="postdate">2026.08.12</span>
+          <div class="postmain">
+            <h3>성형한계도(FLD)로 두께 감소를 미리 보는 법</h3>
+            <p>프레스 성형 시뮬레이션에서 파단 위험 구간을 판단하는 기준을 정리합니다.</p>
+          </div>
+          <span class="postarrow">읽기 →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -227,7 +98,12 @@
 
 <footer class="site">
   <div class="wrap footgrid">
-    <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
+    <div>
+      <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
+      <div class="footsocial">
+        <a href="mailto:jbkim@ventron.co.kr" aria-label="이메일">@</a>
+      </div>
+    </div>
     <div class="footmeta">
       자동차 외판 금형성형해석<br>
       <a href="mailto:jbkim@ventron.co.kr">jbkim@ventron.co.kr</a> · <a href="contact.html">문의하기</a><br>
@@ -235,6 +111,16 @@
     </div>
   </div>
 </footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => {
+    if (window.scrollY > 60) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+</script>
 
 </body>
 </html>
