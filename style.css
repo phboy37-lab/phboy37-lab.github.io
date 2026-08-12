@@ -171,16 +171,29 @@ header.site.transparent .navlinks a{
 @media (max-width: 720px){
   .navlinks{
     position: fixed;
-    inset: 65px 0 0 0;
-    background: var(--bg);
+    inset: 0;
+    z-index: 300;
+    background: #070c16;
     flex-direction: column;
-    gap: 0;
-    padding: 8px 32px 24px;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 0 32px;
     display: none;
-    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transition: opacity 0.2s ease;
   }
-  .navlinks.open{ display: flex; }
-  .navlinks a{ padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .navlinks.open{ display: flex; opacity: 1; }
+  .navlinks a{
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    font-size: 17px;
+    color: var(--text);
+  }
+  .navlinks a:last-child{ border-bottom: none; }
   .navtoggle{
     display: flex;
     flex-direction: column;
@@ -189,9 +202,18 @@ header.site.transparent .navlinks a{
     border: none;
     cursor: pointer;
     padding: 6px;
+    position: relative;
+    z-index: 310;
   }
-  .navtoggle span{ width: 22px; height: 2px; background: var(--text); }
+  .navtoggle span{
+    width: 22px; height: 2px; background: var(--text);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .navtoggle.open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+  .navtoggle.open span:nth-child(2){ opacity: 0; }
+  .navtoggle.open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
 }
+body.menu-lock{ overflow: hidden; height: 100vh; }
 
 /* ---------- Buttons ---------- */
 .btn{
@@ -417,7 +439,7 @@ footer.site{
 }
 .introOverlay .introLogoWrap{
   position: relative;
-  width: min(300px, 60vw);
+  width: min(92vw, 92vh * 1.43, 900px);
 }
 .introOverlay img{
   width: 100%;

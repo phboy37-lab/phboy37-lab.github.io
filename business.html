@@ -73,7 +73,7 @@
 <header class="site">
   <nav class="nav">
     <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
-    <button class="navtoggle" aria-label="메뉴 열기" onclick="document.querySelector('.navlinks').classList.toggle('open')">
+    <button class="navtoggle" aria-label="메뉴 열기" onclick="this.classList.toggle('open');document.querySelector('.navlinks').classList.toggle('open');document.body.classList.toggle('menu-lock')">
       <span></span><span></span><span></span>
     </button>
     <div class="navlinks">
@@ -90,7 +90,7 @@
   <div class="wrap pagehead">
     <span class="eyebrow">WHAT WE DO</span>
     <h1>자동차 램프 광학설계 및 해석</h1>
-    <p>점등되기 전에, 화면 위에서 먼저 검증합니다. 벤트론은 램프 광학 해석을 중심으로, 외판 금형성형해석까지 함께 다룹니다.</p>
+    <p>점등해보기 전에 화면에서 먼저 확인합니다. 램프 광학해석을 주로 하고, 외판 금형성형해석도 같이 맡고 있습니다.</p>
   </div>
 
   <section class="svcblock" id="optics">
@@ -104,7 +104,7 @@
       </div>
       <div class="svcbody">
         <div>
-          <p class="desc">헤드램프, 리어램프 등 자동차 램프의 광학 시스템을 설계하고 배광 성능을 해석합니다. 실제 시제품 없이도 법규 기준 충족 여부와 디자인 의도가 구현되는지를 시뮬레이션으로 확인합니다.</p>
+          <p class="desc">헤드램프나 리어램프 같은 자동차 램프의 광학 시스템을 설계하고, 배광 성능을 해석합니다. 시제품을 뽑기 전에 법규 기준을 통과하는지, 의도한 디자인이 나오는지를 시뮬레이션으로 먼저 확인합니다.</p>
           <ul class="proc">
             <li>
               <span class="step">IN</span>
@@ -160,7 +160,7 @@
       </div>
       <div class="svcbody">
         <div>
-          <p class="desc">자동차 외판 부품의 프레스 성형 공정을 시뮬레이션하여 두께 감소, 파단, 주름, 스프링백 등 성형 결함을 금형 제작 전 단계에서 예측합니다. 램프 광학 프로젝트와 함께, 또는 별도 과제로도 진행합니다.</p>
+          <p class="desc">자동차 외판 부품을 프레스로 찍을 때 생기는 두께 감소, 파단, 주름, 스프링백 같은 문제를 금형 만들기 전에 시뮬레이션으로 미리 봅니다. 램프 프로젝트와 같이 진행하기도 하고, 이 작업만 따로 맡기도 합니다.</p>
         </div>
         <div class="deliver">
           <span class="tag">DELIVERABLES</span>
