@@ -24,7 +24,7 @@
   introOverlay.addEventListener('animationend', (e) => {
     if (e.animationName === 'introOut') unlock();
   });
-  setTimeout(unlock, 7600);
+  setTimeout(unlock, 7200);
 })();
 
 // Scroll reveal for elements with class "reveal"

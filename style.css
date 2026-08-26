@@ -572,87 +572,76 @@ footer.site{
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  animation: introOut 0.9s ease 6.6s forwards;
+  animation: introOut 0.9s ease 6.2s forwards;
 }
 .introOverlay .introLogoWrap{
   position: relative;
-  width: min(61vw, 61vh * 1.3, 600px);
+  width: min(70vw, 62vh * 1.1, 480px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.introOverlay .sweep{ display: none; }
-.introOverlay .wireSvg{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+.introOverlay .markSvg{
+  width: 62%;
+  aspect-ratio: 300 / 220;
+  overflow: visible;
 }
-.introOverlay .wireSvg path{
+.introOverlay .markSvg .arm{
   fill: none;
-  stroke: var(--accent-cyan);
-  stroke-width: 3.2;
+  stroke: url(#armGradient);
+  stroke-width: 26;
   stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 420;
-  stroke-dashoffset: 420;
-  animation: wireDraw 2.6s cubic-bezier(.45,0,.2,1) 0.1s forwards;
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+  animation: wireDraw 1.7s cubic-bezier(.5,0,.2,1) 0.1s forwards;
 }
-.introOverlay .wireSvg path.wireTri{
-  stroke: var(--accent-amber);
-  stroke-width: 3.2;
-  stroke-dasharray: 130;
-  stroke-dashoffset: 130;
-  animation: wireDraw 1.2s cubic-bezier(.45,0,.2,1) 1.9s forwards;
+.introOverlay .markSvg .arm.right{
+  animation-delay: 0.35s;
 }
-.introOverlay .wireSvg circle{
-  fill: var(--accent-cyan);
+.introOverlay .markSvg .tri{
+  fill: var(--accent-amber);
   opacity: 0;
-  animation: nodeIn 0.35s ease forwards;
+  transform-origin: 150px 60px;
+  transform: scale(0.3);
+  animation: triPop 0.5s cubic-bezier(.3,1.6,.4,1) 1.9s forwards;
 }
-.introOverlay .wireSvg{
-  opacity: 1;
-  animation: wireFadeOut 0.7s ease 3.4s forwards;
+@keyframes triPop{
+  to{ opacity: 1; transform: scale(1); }
 }
-@keyframes wireDraw{ to{ stroke-dashoffset: 0; } }
-@keyframes wireFadeOut{ to{ opacity: 0; } }
-.introOverlay img{
-  width: 100%;
-  display: block;
-  opacity: 1;
+.introOverlay .wordmark{
+  margin-top: 26px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 6vw, 42px);
+  letter-spacing: 0.06em;
+  color: #fff;
   clip-path: inset(0 100% 0 0);
-  filter: brightness(0.75) saturate(0.75);
-  animation: introLogoIn 1.8s cubic-bezier(.65,0,.2,1) 3.0s forwards;
+  animation: introLogoIn 0.9s cubic-bezier(.5,0,.2,1) 2.5s forwards;
 }
 .introOverlay .introTag{
-  position: absolute;
-  bottom: -34px; left: 0; right: 0;
+  position: static;
+  margin-top: 14px;
   text-align: center;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.25em;
   color: var(--text-faint);
   opacity: 0;
-  animation: introTagIn 0.7s ease 4.6s forwards;
+  animation: introTagIn 0.7s ease 3.4s forwards;
 }
 .introOverlay .skipcue{
   position: absolute;
-  bottom: 36px; left: 0; right: 0;
+  bottom: -80px; left: 0; right: 0;
   text-align: center;
   font-family: var(--font-mono);
   font-size: 10.5px;
   letter-spacing: 0.14em;
   color: var(--text-faint);
   opacity: 0;
-  animation: introTagIn 0.7s ease 5.1s forwards;
+  animation: introTagIn 0.7s ease 4.0s forwards;
 }
-@keyframes introLogoIn{
-  0%{ clip-path: inset(0 100% 0 0); filter: brightness(0.75) saturate(0.75); }
-  85%{ filter: brightness(1.2) saturate(1.1); }
-  100%{ clip-path: inset(0 0% 0 0); filter: brightness(1) saturate(1); }
-}
-@keyframes introSweep{
-  0%{ transform: translateX(-160%); }
-  100%{ transform: translateX(260%); }
-}
-@keyframes nodeIn{ to{ opacity: 1; } }
+@keyframes wireDraw{ to{ stroke-dashoffset: 0; } }
+@keyframes introLogoIn{ to{ clip-path: inset(0 0% 0 0); } }
 @keyframes introTagIn{ to{ opacity: 1; } }
 @keyframes introOut{
   to{ opacity: 0; visibility: hidden; pointer-events: none; }
@@ -660,8 +649,10 @@ footer.site{
 body.intro-lock{ overflow: hidden; height: 100vh; }
 @media (prefers-reduced-motion: reduce){
   .introOverlay{ animation: introOut 0.4s ease 0.8s forwards; }
-  .introOverlay img{ animation: none; opacity: 1; clip-path: none; filter: none; }
-  .introOverlay .sweep{ display: none; }
+  .introOverlay .markSvg .arm{ animation: none; stroke-dashoffset: 0; }
+  .introOverlay .markSvg .tri{ animation: none; opacity: 1; transform: scale(1); }
+  .introOverlay .wordmark{ animation: none; clip-path: none; }
+  .introOverlay .introTag, .introOverlay .skipcue{ animation: none; opacity: 1; }
 }
 
 /* ---------- Insights / posts ---------- */
