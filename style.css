@@ -428,6 +428,100 @@ footer.site{
 }
 .footsocial a:hover{ border-color: var(--accent-cyan); color: var(--accent-cyan); }
 
+/* ---------- Scroll reveal ---------- */
+.reveal{
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s cubic-bezier(.2,.7,.2,1), transform 0.7s cubic-bezier(.2,.7,.2,1);
+}
+.reveal.visible{ opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity: 1; transform: none; transition: none; }
+}
+
+/* stagger helpers for grouped reveals */
+.showcase .showcard:nth-child(1){ transition-delay: 0s; }
+.showcase .showcard:nth-child(2){ transition-delay: 0.08s; }
+.showcase .showcard:nth-child(3){ transition-delay: 0.16s; }
+.showcase .showcard:nth-child(4){ transition-delay: 0.24s; }
+.capslist .capitem:nth-child(1){ transition-delay: 0s; }
+.capslist .capitem:nth-child(2){ transition-delay: 0.08s; }
+.capslist .capitem:nth-child(3){ transition-delay: 0.16s; }
+.capslist .capitem:nth-child(4){ transition-delay: 0.24s; }
+
+/* ---------- Tech marquee ticker ---------- */
+.marquee{
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  padding: 18px 0;
+  background: var(--bg-panel);
+}
+.marquee .track{
+  display: flex;
+  width: max-content;
+  gap: 0;
+  animation: marqueeScroll 26s linear infinite;
+}
+.marquee .track span{
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  color: var(--text-faint);
+  white-space: nowrap;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.marquee .track span::after{
+  content: '◆';
+  color: var(--accent-cyan);
+  font-size: 8px;
+}
+@keyframes marqueeScroll{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce){
+  .marquee .track{ animation: none; }
+}
+
+/* ---------- Process line (business page) ---------- */
+.proc{ list-style: none; margin: 0; padding: 0; position: relative; }
+.proc li{
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 18px;
+  padding: 0 0 28px;
+  position: relative;
+}
+.proc li:last-child{ padding-bottom: 0; }
+.proc .step{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--bg);
+  background: var(--accent-cyan);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+.proc li:not(:last-child)::before{
+  content: '';
+  position: absolute;
+  left: 19px; top: 40px;
+  width: 1px;
+  height: calc(100% - 40px);
+  background: var(--border);
+}
+.proc .stepname{ color: var(--text); font-weight: 500; margin-bottom: 4px; padding-top: 8px; }
+.proc .stepdesc{ color: var(--text-dim); font-size: 13.5px; }
+
 /* ---------- Logo intro sequence ---------- */
 .introOverlay{
   position: fixed;
