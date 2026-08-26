@@ -12,19 +12,43 @@
   onScroll();
 })();
 
-// Intro logo overlay (home page only)
+// Intro logo overlay (home page only) — loader-style percentage counter
 (function(){
   const introOverlay = document.getElementById('introOverlay');
   if (!introOverlay) return;
+  const barFill = document.getElementById('loaderBarFill');
+  const pctLabel = document.getElementById('loaderPct');
+
   const unlock = () => {
     document.body.classList.remove('intro-lock');
     introOverlay.remove();
   };
-  introOverlay.addEventListener('click', unlock);
-  introOverlay.addEventListener('animationend', (e) => {
-    if (e.animationName === 'introOut') unlock();
-  });
-  setTimeout(unlock, 7200);
+
+  let done = false;
+  const finish = () => {
+    if (done) return;
+    done = true;
+    introOverlay.classList.add('introDone');
+    introOverlay.addEventListener('animationend', unlock, { once: true });
+    setTimeout(unlock, 1000);
+  };
+
+  introOverlay.addEventListener('click', finish);
+
+  const duration = 1800;
+  const start = performance.now();
+  function tick(now){
+    const elapsed = now - start;
+    const pct = Math.min(100, Math.round((elapsed / duration) * 100));
+    if (barFill) barFill.style.width = pct + '%';
+    if (pctLabel) pctLabel.textContent = pct + '%';
+    if (pct < 100){
+      requestAnimationFrame(tick);
+    } else {
+      setTimeout(finish, 350);
+    }
+  }
+  requestAnimationFrame(tick);
 })();
 
 // Scroll reveal for elements with class "reveal"

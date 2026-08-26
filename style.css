@@ -562,7 +562,7 @@ footer.site{
 .proc .stepname{ color: var(--text); font-weight: 500; margin-bottom: 4px; padding-top: 8px; }
 .proc .stepdesc{ color: var(--text-dim); font-size: 13.5px; }
 
-/* ---------- Logo intro sequence ---------- */
+/* ---------- Logo intro sequence (loader style) ---------- */
 .introOverlay{
   position: fixed;
   inset: 0;
@@ -572,87 +572,68 @@ footer.site{
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  animation: introOut 0.9s ease 6.2s forwards;
+}
+.introOverlay.introDone{
+  animation: introOut 0.8s ease forwards;
 }
 .introOverlay .introLogoWrap{
-  position: relative;
-  width: min(70vw, 62vh * 1.1, 480px);
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: min(70vw, 420px);
 }
-.introOverlay .markSvg{
-  width: 62%;
-  aspect-ratio: 300 / 220;
-  overflow: visible;
-}
-.introOverlay .markSvg .arm{
-  fill: none;
-  stroke: url(#armGradient);
-  stroke-width: 26;
-  stroke-linecap: round;
-  stroke-dasharray: 260;
-  stroke-dashoffset: 260;
-  animation: wireDraw 1.7s cubic-bezier(.5,0,.2,1) 0.1s forwards;
-}
-.introOverlay .markSvg .arm.right{
-  animation-delay: 0.35s;
-}
-.introOverlay .markSvg .tri{
-  fill: var(--accent-amber);
+.introOverlay .introLogoWrap img{
+  width: min(50vw, 260px);
   opacity: 0;
-  transform-origin: 150px 60px;
-  transform: scale(0.3);
-  animation: triPop 0.5s cubic-bezier(.3,1.6,.4,1) 1.9s forwards;
+  animation: logoFadeIn 0.8s ease 0.1s forwards;
 }
-@keyframes triPop{
-  to{ opacity: 1; transform: scale(1); }
+@keyframes logoFadeIn{ to{ opacity: 1; } }
+.introOverlay .loaderRow{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 34px;
+  opacity: 0;
+  animation: logoFadeIn 0.6s ease 0.4s forwards;
 }
-.introOverlay .wordmark{
-  margin-top: 26px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(28px, 6vw, 42px);
-  letter-spacing: 0.06em;
-  color: #fff;
-  clip-path: inset(0 100% 0 0);
-  animation: introLogoIn 0.9s cubic-bezier(.5,0,.2,1) 2.5s forwards;
+.introOverlay .loaderBarTrack{
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.introOverlay .loaderBarFill{
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0%;
+  background: var(--accent-cyan);
+  transition: width 0.1s linear;
+}
+.introOverlay .loaderPct{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-faint);
+  min-width: 34px;
+  text-align: right;
 }
 .introOverlay .introTag{
-  position: static;
-  margin-top: 14px;
+  margin-top: 20px;
   text-align: center;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.25em;
   color: var(--text-faint);
   opacity: 0;
-  animation: introTagIn 0.7s ease 3.4s forwards;
+  animation: logoFadeIn 0.6s ease 0.6s forwards;
 }
-.introOverlay .skipcue{
-  position: absolute;
-  bottom: -80px; left: 0; right: 0;
-  text-align: center;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
-  color: var(--text-faint);
-  opacity: 0;
-  animation: introTagIn 0.7s ease 4.0s forwards;
-}
-@keyframes wireDraw{ to{ stroke-dashoffset: 0; } }
-@keyframes introLogoIn{ to{ clip-path: inset(0 0% 0 0); } }
-@keyframes introTagIn{ to{ opacity: 1; } }
 @keyframes introOut{
   to{ opacity: 0; visibility: hidden; pointer-events: none; }
 }
 body.intro-lock{ overflow: hidden; height: 100vh; }
 @media (prefers-reduced-motion: reduce){
-  .introOverlay{ animation: introOut 0.4s ease 0.8s forwards; }
-  .introOverlay .markSvg .arm{ animation: none; stroke-dashoffset: 0; }
-  .introOverlay .markSvg .tri{ animation: none; opacity: 1; transform: scale(1); }
-  .introOverlay .wordmark{ animation: none; clip-path: none; }
-  .introOverlay .introTag, .introOverlay .skipcue{ animation: none; opacity: 1; }
+  .introOverlay img, .introOverlay .loaderRow, .introOverlay .introTag{ animation: none; opacity: 1; }
 }
 
 /* ---------- Insights / posts ---------- */
