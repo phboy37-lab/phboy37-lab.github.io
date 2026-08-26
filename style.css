@@ -578,22 +578,44 @@ footer.site{
   position: relative;
   width: min(61vw, 61vh * 1.3, 600px);
 }
+.introOverlay .sweep{ display: none; }
+.introOverlay .wireSvg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.introOverlay .wireSvg path{
+  fill: none;
+  stroke: var(--accent-cyan);
+  stroke-width: 1.6;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: wireDraw 1.3s cubic-bezier(.4,0,.2,1) 0.1s forwards;
+}
+.introOverlay .wireSvg path.wireTri{
+  stroke: var(--accent-amber);
+  stroke-dasharray: 130;
+  stroke-dashoffset: 130;
+  animation: wireDraw 0.7s cubic-bezier(.4,0,.2,1) 0.8s forwards;
+}
+.introOverlay .wireSvg circle{
+  fill: var(--accent-cyan);
+  opacity: 0;
+  animation: nodeIn 0.3s ease forwards;
+}
+.introOverlay .wireSvg{
+  opacity: 1;
+  animation: wireFadeOut 0.5s ease 1.7s forwards;
+}
+@keyframes wireDraw{ to{ stroke-dashoffset: 0; } }
+@keyframes wireFadeOut{ to{ opacity: 0; } }
 .introOverlay img{
   width: 100%;
   display: block;
   opacity: 0;
-  transform: scale(0.9);
-  filter: brightness(0.55);
-  animation: introLogoIn 1.8s cubic-bezier(.2,.8,.2,1) 0.3s forwards;
-}
-.introOverlay .sweep{
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 40%;
-  background: linear-gradient(100deg, transparent, rgba(255,214,150,0.4), transparent);
-  transform: translateX(-160%);
-  animation: introSweep 1.6s ease 0.9s forwards;
-  mix-blend-mode: screen;
+  transform: scale(0.94);
+  animation: introLogoIn 1s cubic-bezier(.2,.8,.2,1) 1.5s forwards;
 }
 .introOverlay .introTag{
   position: absolute;
@@ -626,6 +648,7 @@ footer.site{
   0%{ transform: translateX(-160%); }
   100%{ transform: translateX(260%); }
 }
+@keyframes nodeIn{ to{ opacity: 1; } }
 @keyframes introTagIn{ to{ opacity: 1; } }
 @keyframes introOut{
   to{ opacity: 0; visibility: hidden; pointer-events: none; }
