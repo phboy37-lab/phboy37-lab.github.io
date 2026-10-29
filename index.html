@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script>(function(){try{var f=/[?&#]intro/.test(location.href);if((f||!sessionStorage.getItem('vi'))&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('intro')}catch(e){}})();</script>
 <style>
 :root{
   --navy:#070d1c;--navy2:#0f1a33;--red:#e4202d;--on-navy:#f4f6fa;--on-navy-mute:#9aa6bd;
@@ -91,6 +92,25 @@ img.viz{display:block;width:100%;height:auto;border-radius:16px}.tile.w4 img.viz
 .fl{display:flex;gap:20px;flex-wrap:wrap}
 @media(max-width:820px){.tile.w4{flex-direction:column;align-items:stretch;gap:24px}.tile.w4 img.viz{flex:none;width:100%;order:-1}.tile .note{position:static;order:-2}}
 @media(max-width:640px){header .wrap{padding:0 16px}.logo span{display:none}nav{gap:12px!important}nav a{font-size:12px}nav a.cta{padding:5px 10px}}
+#intro{display:none;position:fixed;inset:0;z-index:100;background:var(--navy);place-items:center;transition:transform 1.05s cubic-bezier(.76,0,.2,1);cursor:pointer}
+html.intro #intro{display:grid}html.intro,html.intro body{overflow:hidden}
+#intro.out{transform:translateY(-100%)}
+#intro .lg{position:relative;width:min(330px,62vw);opacity:0;transform:scale(.94);animation:lgin 1.2s cubic-bezier(.2,.7,.2,1) .55s forwards}
+#intro .lg img{display:block;width:100%;height:auto}
+#intro .lg i{position:absolute;inset:0;-webkit-mask:url(img/logo-hero-transparent.png) center/contain no-repeat;mask:url(img/logo-hero-transparent.png) center/contain no-repeat;background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.95) 50%,transparent 62%) 140% 0/260% 100% no-repeat;animation:shine 1.3s ease 1.25s forwards}
+#intro .ib{position:absolute;left:50%;top:50%;height:2px;width:0;background:linear-gradient(90deg,transparent,#ff3b47 30%,#fff 50%,#ff3b47 70%,transparent);box-shadow:0 0 26px 5px rgba(228,32,45,.65);transform:translate(-50%,-50%);animation:ibar 1.25s cubic-bezier(.3,.6,.2,1) .1s forwards}
+@keyframes lgin{to{opacity:1;transform:none}}
+@keyframes shine{to{background-position:-40% 0}}
+@keyframes ibar{0%{width:0;opacity:1}65%{width:min(760px,92vw);opacity:1}100%{width:min(760px,92vw);opacity:0}}
+html.intro .ig,html.intro .bar{animation-play-state:paused}
+header{transition:opacity .9s ease .3s}html.intro header{opacity:0}
+.hero h1,.hero .sub,.hero .btns{transition:opacity 1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.hero .sub{transition-delay:.14s}.hero .btns{transition-delay:.28s}
+html.intro .hero h1,html.intro .hero .sub,html.intro .hero .btns{opacity:0;transform:translateY(30px)}
+.js .rv{transition:opacity .9s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.js .rv:not(.in){opacity:0;transform:translateY(34px)}
+.tile img.viz{transition:transform .9s cubic-bezier(.2,.7,.2,1)}.tile:hover img.viz{transform:scale(1.03)}
+@media(prefers-reduced-motion:reduce){#intro{display:none!important}.js .rv:not(.in){opacity:1;transform:none}}
 /* process */
 .process{background:var(--navy);color:var(--on-navy);padding:clamp(80px,12vw,160px) 0}
 .process .sec-lead{color:var(--on-navy-mute)}
@@ -125,6 +145,7 @@ footer a:hover{color:var(--on-navy)}
 </style>
 </head>
 <body>
+<div id="intro" aria-hidden="true"><div class="ib"></div><div class="lg"><img src="img/logo-hero-transparent.png" alt=""><i></i></div></div>
 <header>
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Ventron 홈"><img class="mi" src="img/logo-icon.jpg" alt="Ventron 로고"><span>VENTRON</span></a>
@@ -141,8 +162,8 @@ footer a:hover{color:var(--on-navy)}
 <main id="top">
 <section class="hero">
   <div class="wrap">
-    <h1>양산 전에,<br>빛을 먼저 검증합니다.</h1>
-    <p class="sub">자동차 램프 광학설계와 해석. 시제품 전에 시뮬레이션으로 문제를 찾아 개발 비용과 일정을 줄입니다.</p>
+    <h1>금형을 만들기 전에,<br>빛부터 확인합니다.</h1>
+    <p class="sub">자동차 램프의 광학설계와 해석을 합니다. 배광과 법규 적합 여부를 시뮬레이션으로 먼저 확인해서, 금형을 다시 파는 일을 줄입니다.</p>
     <div class="btns">
       <a class="btn p" href="#contact">문의하기</a>
       <a class="btn g" href="#services">사업분야 보기</a>
@@ -176,29 +197,29 @@ footer a:hover{color:var(--on-navy)}
 </section>
 
 <section class="statement">
-  <div class="wrap"><p class="fill">시제품을 만들기 전에, 시뮬레이션으로 문제를 먼저 찾습니다. 그래서 개발 비용과 일정이 줄어듭니다.</p></div>
+  <div class="wrap"><p class="fill">램프 금형은 한 번 나오면 고치기 어렵습니다. 그래서 그 전에, 컴퓨터 안에서 몇 번이고 다시 해봅니다.</p></div>
 </section>
 
 <section class="services" id="services">
   <div class="wrap">
-    <h2 class="sec-title">램프 개발에 필요한 해석을 한곳에서.</h2>
-    <p class="sec-lead">인테리어 무드램프, DRL, 리어램프의 광학설계·해석을 수행하고, 외판 성형해석까지 다룹니다.</p>
+    <h2 class="sec-title">벤트론이 하는 일.</h2>
+    <p class="sec-lead">무드램프, DRL, 리어램프의 광학설계와 해석이 주 업무이고, 외판 성형해석도 함께 합니다.</p>
     <div class="bento">
       <article class="tile w4 dark">
-        <div class="tx"><h3>배광 패턴 해석</h3><p>광선추적 시뮬레이션으로 등광도 곡선과 광도 분포를 산출합니다.</p></div>
+        <div class="tx"><h3>배광 패턴 해석</h3><p>광선추적으로 등광도 곡선과 광도 분포를 뽑아, 설계가 목표 배광에 맞는지 확인합니다.</p></div>
         <img class="viz" src="img/analysis-isocandela.png" alt="등광도 분포 해석 결과 예시" width="1280" height="800" loading="lazy">
       </article>
       <article class="tile w2">
         <img class="viz" src="img/analysis-photometry.png" alt="법규 측정점 광도 검토 예시" width="1280" height="800" loading="lazy">
-        <div class="tx"><h3>법규 대응 검토</h3><p>KMVSS, ECE 등 국내외 램프 법규 기준 충족 여부를 시뮬레이션 단계에서 확인합니다.</p></div>
+        <div class="tx"><h3>법규 대응 검토</h3><p>KMVSS, ECE 같은 법규 기준을 만족하는지 시뮬레이션 단계에서 미리 봅니다.</p></div>
       </article>
       <article class="tile w2">
         <img class="viz" src="img/analysis-lightguide.png" alt="라이트가이드 휘도 균일도 예시" width="1280" height="800" loading="lazy">
-        <div class="tx"><h3>라이트가이드 최적화</h3><p>무드램프·DRL의 라이트가이드 형상을 해석해 광 균일도를 개선합니다.</p></div>
+        <div class="tx"><h3>라이트가이드 최적화</h3><p>무드램프·DRL의 라이트가이드 형상을 바꿔가며 빛이 고르게 퍼지는 조건을 찾습니다.</p></div>
       </article>
       <article class="tile w4">
         <span class="note">보조 사업</span>
-        <div class="tx"><h3>외판 성형해석</h3><p>프레스 성형 시 두께 감소와 파단 위험 구간을 성형한계도(FLD)로 검토합니다.</p></div>
+        <div class="tx"><h3>외판 성형해석</h3><p>프레스 성형에서 얇아지거나 찢어질 위험이 있는 구간을 성형한계도(FLD)로 찾아냅니다.</p></div>
         <img class="viz" src="img/analysis-fld.png" alt="성형한계도 해석 결과 예시" width="1280" height="800" loading="lazy">
       </article>
     </div>
@@ -208,13 +229,13 @@ footer a:hover{color:var(--on-navy)}
 
 <section class="process" id="process">
   <div class="wrap">
-    <h2 class="sec-title">의뢰부터 재검증까지.</h2>
-    <p class="sec-lead">도면과 사양만 있으면 시작할 수 있습니다.</p>
+    <h2 class="sec-title">일은 이렇게 진행됩니다.</h2>
+    <p class="sec-lead">도면과 사양만 있으면 됩니다.</p>
     <ol class="steps">
-      <li><b>1단계</b><h3>자료 전달</h3><p>CAD 데이터와 요구 사양, 적용할 법규 기준을 보내주세요.</p></li>
-      <li><b>2단계</b><h3>해석 수행</h3><p>광학 또는 성형 시뮬레이션으로 문제 구간을 찾습니다.</p></li>
-      <li><b>3단계</b><h3>결과 보고</h3><p>곡선과 분포에 설계 변경으로 이어질 근거를 담아 전달합니다.</p></li>
-      <li><b>4단계</b><h3>재검증</h3><p>변경안을 반영해 다시 해석하고 개선 여부를 확인합니다.</p></li>
+      <li><b>01</b><h3>자료 받기</h3><p>CAD 데이터, 요구 사양, 맞춰야 할 법규를 보내주세요.</p></li>
+      <li><b>02</b><h3>해석</h3><p>광학 또는 성형 시뮬레이션으로 문제가 되는 구간을 찾습니다.</p></li>
+      <li><b>03</b><h3>결과 정리</h3><p>해석 결과와 함께, 어디를 어떻게 바꾸면 되는지 근거를 드립니다.</p></li>
+      <li><b>04</b><h3>다시 확인</h3><p>바뀐 설계로 다시 해석해서 좋아졌는지 확인합니다.</p></li>
     </ol>
   </div>
 </section>
@@ -233,8 +254,8 @@ footer a:hover{color:var(--on-navy)}
       <article class="card">
         <div>
           <small>개발 예정</small>
-          <h3>해석 업무를 자동화하는 AI 소프트웨어</h3>
-          <p>반복되는 해석 작업을 줄이는 도구를 개발할 예정입니다.</p>
+          <h3>반복되는 해석은 AI로 줄이려 합니다.</h3>
+          <p>자주 반복하는 해석 작업을 자동화하는 소프트웨어를 준비하고 있습니다.</p>
         </div>
         <p class="tools">사용 도구&nbsp; <b>SPEOS</b>, <b>AutoForm</b>, <b>CATIA</b></p>
       </article>
@@ -244,9 +265,9 @@ footer a:hover{color:var(--on-navy)}
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <h2>양산 전에 확인하고 싶은<br>부품이 있나요?</h2>
-    <p class="sub">도면과 요구 사양을 보내주세요. 어떤 해석이 필요한지부터 함께 정리해 드립니다.</p>
-    <div class="btns"><a class="btn p" href="mailto:jbkim@ventron.co.kr">메일로 문의하기</a></div>
+    <h2>검토가 필요한<br>부품이 있으신가요?</h2>
+    <p class="sub">도면과 요구 사양을 보내주시면, 어떤 해석이 필요한지부터 같이 정리해 드립니다.</p>
+    <div class="btns"><a class="btn p" href="mailto:jbkim@ventron.co.kr">메일 보내기</a></div>
     <a class="mail" href="mailto:jbkim@ventron.co.kr">jbkim@ventron.co.kr</a>
     <p class="addr">경기도 평택시 비전2로 195, 209-47호</p>
   </div>
@@ -262,6 +283,21 @@ footer a:hover{color:var(--on-navy)}
 
 <script>
 document.documentElement.classList.add('js');
+// 인트로 + 스크롤 등장
+(function(){
+  var h=document.documentElement,it=document.getElementById('intro');
+  function done(){h.classList.remove('intro');try{sessionStorage.setItem('vi','1')}catch(e){}if(it)setTimeout(function(){it.style.display='none'},1200)}
+  if(h.classList.contains('intro')&&it){
+    var t1=setTimeout(function(){it.classList.add('out');done()},3000);
+    it.addEventListener('click',function(){clearTimeout(t1);it.classList.add('out');done()});
+  }
+  var els=document.querySelectorAll('.tile,.steps li,.card,.contact h2');
+  els.forEach(function(e,i){e.classList.add('rv');e.style.transitionDelay=(i%4)*90+'ms'});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(a){a.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  }else els.forEach(function(e){e.classList.add('in')});
+})();
 // 스크롤 문장 채움 효과 + 한국어/영어 전환
 (function(){
   var el=document.querySelector('.fill'),sp=[];
@@ -277,37 +313,41 @@ document.documentElement.classList.add('js');
   }
   addEventListener('scroll',update,{passive:true});addEventListener('resize',update);
   var fillKo=el.textContent.trim();
-  var fillEn='We find problems in simulation before a prototype is built. That is how development cost and schedule come down.';
+  var fillEn='A lamp mold is hard to fix once it exists. So before that, we rerun the design on a computer as many times as it takes.';
   var D=[
+    ['금형을 만들기 전에, 빛부터 확인합니다.','Check the light before<br>the mold is made.'],
+    ['자동차 램프의 광학설계와 해석을 합니다. 배광과 법규 적합 여부를 시뮬레이션으로 먼저 확인해서, 금형을 다시 파는 일을 줄입니다.','We do optical design and analysis for automotive lamps. By checking light distribution and regulation compliance in simulation first, we cut down on reworking molds.'],
+    ['벤트론이 하는 일.','What Ventron does.'],
+    ['무드램프, DRL, 리어램프의 광학설계와 해석이 주 업무이고, 외판 성형해석도 함께 합니다.','Optical design and analysis for mood lamps, DRLs and rear lamps is our main work. We also do outer-panel forming analysis.'],
+    ['광선추적으로 등광도 곡선과 광도 분포를 뽑아, 설계가 목표 배광에 맞는지 확인합니다.','Ray tracing gives isocandela curves and intensity distributions, so we can check the design against the target pattern.'],
+    ['KMVSS, ECE 같은 법규 기준을 만족하는지 시뮬레이션 단계에서 미리 봅니다.','We check against regulations such as KMVSS and ECE at the simulation stage, before anything is built.'],
+    ['무드램프·DRL의 라이트가이드 형상을 바꿔가며 빛이 고르게 퍼지는 조건을 찾습니다.','We vary light guide geometry in mood lamps and DRLs to find where the light spreads evenly.'],
+    ['프레스 성형에서 얇아지거나 찢어질 위험이 있는 구간을 성형한계도(FLD)로 찾아냅니다.','We use forming limit diagrams (FLD) to find areas that may thin or tear in press forming.'],
+    ['일은 이렇게 진행됩니다.','How a project runs.'],
+    ['도면과 사양만 있으면 됩니다.','Drawings and specifications are enough to start.'],
+    ['자료 받기','Receive data'],
+    ['CAD 데이터, 요구 사양, 맞춰야 할 법규를 보내주세요.','Send CAD data, requirements and the regulations to meet.'],
+    ['해석','Analysis'],
+    ['광학 또는 성형 시뮬레이션으로 문제가 되는 구간을 찾습니다.','Optical or forming simulation finds the problem areas.'],
+    ['결과 정리','Findings'],
+    ['해석 결과와 함께, 어디를 어떻게 바꾸면 되는지 근거를 드립니다.','Results come with the reasoning for what to change and where.'],
+    ['다시 확인','Recheck'],
+    ['바뀐 설계로 다시 해석해서 좋아졌는지 확인합니다.','We rerun the analysis on the revised design to confirm the improvement.'],
+    ['반복되는 해석은 AI로 줄이려 합니다.','We aim to cut repetitive analysis with AI.'],
+    ['자주 반복하는 해석 작업을 자동화하는 소프트웨어를 준비하고 있습니다.','We are preparing software that automates analysis tasks we repeat often.'],
+    ['검토가 필요한 부품이 있으신가요?','Have a part<br>that needs a review?'],
+    ['도면과 요구 사양을 보내주시면, 어떤 해석이 필요한지부터 같이 정리해 드립니다.','Send the drawing and requirements, and we will first work out together which analysis you need.'],
+    ['메일 보내기','Send an email'],
     ['회사소개','About'],['사업분야','Services'],['※ 위 이미지는 이해를 돕기 위한 예시입니다.','Images above are illustrative examples.'],['진행 방식','Process'],['소식','News'],['문의','Contact'],
-    ['양산 전에, 빛을 먼저 검증합니다.','Verify the light<br>before mass production.'],
-    ['자동차 램프 광학설계와 해석. 시제품 전에 시뮬레이션으로 문제를 찾아 개발 비용과 일정을 줄입니다.','Optical design and analysis for automotive lamps. We find problems by simulation before prototypes, cutting development cost and schedule.'],
     ['문의하기','Contact us'],['사업분야 보기','View services'],
-    ['램프 개발에 필요한 해석을 한곳에서.','The analysis lamp development needs, in one place.'],
-    ['인테리어 무드램프, DRL, 리어램프의 광학설계·해석을 수행하고, 외판 성형해석까지 다룹니다.','We perform optical design and analysis for interior mood lamps, DRLs and rear lamps, and also cover outer-panel forming analysis.'],
     ['배광 패턴 해석','Light distribution analysis'],
-    ['광선추적 시뮬레이션으로 등광도 곡선과 광도 분포를 산출합니다.','Ray-tracing simulation produces isocandela curves and luminous intensity distributions.'],
     ['법규 대응 검토','Regulation compliance review'],
-    ['KMVSS, ECE 등 국내외 램프 법규 기준 충족 여부를 시뮬레이션 단계에서 확인합니다.','We check compliance with domestic and international lamp regulations such as KMVSS and ECE at the simulation stage.'],
     ['라이트가이드 최적화','Light guide optimization'],
-    ['무드램프·DRL의 라이트가이드 형상을 해석해 광 균일도를 개선합니다.','We analyze light guide geometry in mood lamps and DRLs to improve light uniformity.'],
     ['보조 사업','Secondary service'],['외판 성형해석','Outer-panel forming analysis'],
-    ['프레스 성형 시 두께 감소와 파단 위험 구간을 성형한계도(FLD)로 검토합니다.','We review thinning and fracture-risk zones in press forming with forming limit diagrams (FLD).'],
-    ['의뢰부터 재검증까지.','From request to re-verification.'],
-    ['도면과 사양만 있으면 시작할 수 있습니다.','Drawings and specifications are all you need to start.'],
-    ['1단계','Step 1'],['2단계','Step 2'],['3단계','Step 3'],['4단계','Step 4'],
-    ['자료 전달','Send data'],['CAD 데이터와 요구 사양, 적용할 법규 기준을 보내주세요.','Send CAD data, requirements and the applicable regulations.'],
-    ['해석 수행','Analysis'],['광학 또는 성형 시뮬레이션으로 문제 구간을 찾습니다.','Optical or forming simulation locates the problem areas.'],
-    ['결과 보고','Report'],['곡선과 분포에 설계 변경으로 이어질 근거를 담아 전달합니다.','Curves and distributions come with the evidence behind each design change.'],
-    ['재검증','Re-verification'],['변경안을 반영해 다시 해석하고 개선 여부를 확인합니다.','We re-run the analysis on the revised design and confirm the improvement.'],
     ['성형한계도(FLD)로 두께 감소를 미리 보는 법','Previewing thickness reduction with the forming limit diagram (FLD)'],
     ['프레스 성형 시뮬레이션에서 파단 위험 구간을 판단하는 기준을 정리합니다.','A summary of how to judge fracture-risk zones in press forming simulation.'],
     ['글 읽기','Read the post (Korean)'],
-    ['개발 예정','In development'],['해석 업무를 자동화하는 AI 소프트웨어','AI software that automates analysis work'],
-    ['반복되는 해석 작업을 줄이는 도구를 개발할 예정입니다.','We plan to develop tools that cut repetitive analysis work.'],
-    ['사용 도구 SPEOS, AutoForm, CATIA','Tools&nbsp; <b>SPEOS</b>, <b>AutoForm</b>, <b>CATIA</b>'],
-    ['양산 전에 확인하고 싶은 부품이 있나요?','Have a part you want<br>verified before production?'],['메일로 문의하기','Email us'],
-    ['도면과 요구 사양을 보내주세요. 어떤 해석이 필요한지부터 함께 정리해 드립니다.','Send the drawing and requirements. We will help you work out which analysis you need first.'],
+    ['개발 예정','In development'],['사용 도구 SPEOS, AutoForm, CATIA','Tools&nbsp; <b>SPEOS</b>, <b>AutoForm</b>, <b>CATIA</b>'],
     ['경기도 평택시 비전2로 195, 209-47호','195, Bijeon 2-ro, Pyeongtaek-si, Gyeonggi-do, Korea (Room 209-47)'],
     ['개인정보처리방침','Privacy policy']
   ];
