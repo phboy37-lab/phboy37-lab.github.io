@@ -1,156 +1,339 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>벤트론 | Ventron — 자동차 램프 광학설계 및 해석</title>
 <meta name="description" content="벤트론은 자동차 램프 광학설계 및 해석을 중심으로, 외판 금형성형해석까지 다루는 엔지니어링 해석 기업입니다.">
-<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#070d1c;--navy2:#0f1a33;--red:#e4202d;--on-navy:#f4f6fa;--on-navy-mute:#9aa6bd;
+  --s-bg:#f5f5f7;--s-tile:#ffffff;--s-ink:#0b1020;--s-mute:#586175;--s-line:#d9dce3;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  background:var(--navy);color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--s-bg:#0a101f;--s-tile:#111a30;--s-ink:#f2f4f8;--s-mute:#97a2b8;--s-line:#25304a;color-scheme:dark}}
+:root[data-theme="dark"]{--s-bg:#0a101f;--s-tile:#111a30;--s-ink:#f2f4f8;--s-mute:#97a2b8;--s-line:#25304a;color-scheme:dark}
+html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--s-bg);font-family:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--s-ink);word-break:keep-all;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navy);z-index:30}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3,p{margin:0}
+h1,h2{font-weight:700;letter-spacing:-.045em;line-height:1.14}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(7,13,28,.78);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid rgba(255,255,255,.08)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{color:var(--on-navy);font-weight:700;letter-spacing:.32em;font-size:15px}
+nav{display:flex;gap:28px;align-items:center}
+nav a{color:var(--on-navy-mute);font-size:13px;transition:color .2s}
+nav a:hover{color:var(--on-navy)}
+nav a.cta{color:var(--on-navy);background:rgba(255,255,255,.12);padding:6px 14px;border-radius:99px}
+nav .lang{background:none;border:1px solid rgba(255,255,255,.28);color:var(--on-navy);border-radius:99px;padding:5px 12px;font:500 12px "Noto Sans KR",sans-serif;cursor:pointer;transition:background .2s}
+nav .lang:hover{background:rgba(255,255,255,.1)}
+@media(max-width:640px){nav{gap:14px}}
+
+/* hero */
+.hero{background:var(--navy);color:var(--on-navy);text-align:center;padding:96px 0 0;overflow:hidden}
+.hero h1{font-size:clamp(38px,7.2vw,84px);font-weight:700}
+.hero p.sub{max-width:560px;margin:26px auto 0;font-size:clamp(16px,2vw,20px);line-height:1.6;color:var(--on-navy-mute);font-weight:300}
+.btns{display:flex;gap:14px;justify-content:center;margin-top:36px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 26px;border-radius:99px;font-size:15px;font-weight:500;transition:transform .2s,background .2s}
+.btn.p{background:var(--red);color:#fff}.btn.p:hover{background:#c91a26}
+.btn.g{color:var(--on-navy);border:1px solid rgba(255,255,255,.28)}.btn.g:hover{background:rgba(255,255,255,.08)}
+.stage{margin-top:24px;width:100%;max-width:1200px;margin-inline:auto}
+.stage svg{display:block;width:100%;height:auto;overflow:visible}
+.ig{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.7s cubic-bezier(.3,.6,.2,1) .35s forwards}
+.ray{fill:none;stroke:url(#g);stroke-width:1.2;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(.5s + var(--d))}
+.bar{opacity:0;animation:glow 1.2s ease-out .1s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes glow{to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.ig{animation:none;stroke-dashoffset:0}.ray{animation:none;stroke-dashoffset:0}.bar{animation:none;opacity:1}html{scroll-behavior:auto}}
+
+/* statement */
+.statement{padding:clamp(96px,16vw,200px) 0}
+.fill{font-size:clamp(28px,5vw,60px);font-weight:700;letter-spacing:-.04em;line-height:1.3;max-width:900px}
+.js .fill span{opacity:.2;transition:opacity .35s}
+.js .fill span.on{opacity:1}
+
+/* services */
+.services{padding:0 0 clamp(80px,12vw,160px)}
+.sec-title{font-size:clamp(30px,4.6vw,52px);margin-bottom:12px}
+.sec-lead{color:var(--s-mute);font-size:18px;line-height:1.6;max-width:560px;font-weight:300}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:48px}
+.tile{background:var(--s-tile);border-radius:28px;padding:36px;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.tile h3{font-size:clamp(22px,2.6vw,30px);letter-spacing:-.035em;font-weight:700;margin-bottom:10px}
+.tile p{color:var(--s-mute);font-size:16px;line-height:1.6;max-width:420px}
+.tile.w4{grid-column:span 4}.tile.w2{grid-column:span 2}
+.tile.dark{background:var(--navy2);color:var(--on-navy)}.tile.dark p{color:var(--on-navy-mute)}
+.tile svg{position:absolute;right:-40px;top:-30px;width:70%;opacity:.9}
+.tile .note{position:absolute;top:32px;left:36px;font-size:13px;color:var(--s-mute)}
+@media(max-width:820px){.tile.w4,.tile.w2{grid-column:span 6}.tile{min-height:240px;padding:28px}.tile .note{left:28px}}
+
+.tile svg.fld{left:auto;right:28px;top:28px;width:40%;opacity:1;filter:drop-shadow(0 18px 30px rgba(0,0,0,.18))}
+@media(max-width:820px){.tile svg.fld{width:52%;right:24px;top:56px}.tile.w4:last-child{min-height:340px}}
+
+.tile.w2{min-height:350px}.tile.dark p{max-width:330px}
+.tile.w2 svg{left:32px;right:auto;top:32px;width:calc(100% - 64px);opacity:1}
+@media(max-width:820px){.tile.w2{min-height:300px}.tile.w2 svg{left:28px;top:28px;width:min(260px,calc(100% - 56px))}}
+.logo{display:flex;align-items:center;gap:10px}.mi{height:26px;width:auto;border-radius:4px;display:block}
+.tile{min-height:0;justify-content:flex-start}.tile.w2{min-height:0;gap:28px}
+.tile.w4{flex-direction:row;align-items:center;gap:40px}.tile.w4 .tx{flex:1}
+img.viz{display:block;width:100%;height:auto;border-radius:16px}.tile.w4 img.viz{flex:0 0 58%;width:58%}
+.tile .tx{margin-top:auto}.tile.w2 .tx{margin-top:0}
+.cap{margin:18px 4px 0;color:var(--s-mute);font-size:13px}
+.fl{display:flex;gap:20px;flex-wrap:wrap}
+@media(max-width:820px){.tile.w4{flex-direction:column;align-items:stretch;gap:24px}.tile.w4 img.viz{flex:none;width:100%;order:-1}.tile .note{position:static;order:-2}}
+@media(max-width:640px){header .wrap{padding:0 16px}.logo span{display:none}nav{gap:12px!important}nav a{font-size:12px}nav a.cta{padding:5px 10px}}
+/* process */
+.process{background:var(--navy);color:var(--on-navy);padding:clamp(80px,12vw,160px) 0}
+.process .sec-lead{color:var(--on-navy-mute)}
+.steps{list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.16)}
+.steps li{padding:28px 24px 0 0}
+.steps li+li{padding-left:24px;border-left:1px solid rgba(255,255,255,.1)}
+.steps b{display:block;font-size:13px;font-weight:500;color:var(--red);margin-bottom:18px}
+.steps h3{font-size:21px;letter-spacing:-.03em;margin-bottom:10px}
+.steps p{color:var(--on-navy-mute);font-size:15px;line-height:1.65}
+@media(max-width:820px){.steps{grid-template-columns:1fr}.steps li,.steps li+li{padding:24px 0;border-left:0;border-bottom:1px solid rgba(255,255,255,.1)}}
+
+/* news + ai */
+.more{padding:clamp(80px,12vw,160px) 0}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:var(--s-tile);border-radius:28px;padding:40px;min-height:320px;display:flex;flex-direction:column;justify-content:space-between}
+.card small{color:var(--s-mute);font-size:14px}
+.card h3{font-size:clamp(22px,2.8vw,32px);letter-spacing:-.035em;line-height:1.3;margin:12px 0}
+.card p{color:var(--s-mute);line-height:1.65;font-size:16px}
+.card a.more-l{color:var(--red);font-weight:500;margin-top:24px;display:inline-block}
+.tools{margin-top:28px;color:var(--s-mute);font-size:15px}.tools b{color:var(--s-ink);font-weight:500}
+@media(max-width:820px){.duo{grid-template-columns:1fr}.card{padding:28px;min-height:260px}}
+
+/* contact */
+.contact{background:var(--navy);color:var(--on-navy);text-align:center;padding:clamp(90px,14vw,180px) 0 80px}
+.contact h2{font-size:clamp(32px,5.4vw,64px)}
+.contact p.sub{margin:22px auto 0;max-width:480px;color:var(--on-navy-mute);font-size:18px;line-height:1.6;font-weight:300}
+.mail{display:inline-block;margin-top:22px;font-size:16px;color:var(--on-navy-mute)}.mail:hover{color:var(--on-navy)}
+.addr{margin-top:20px;color:var(--on-navy-mute);font-size:15px}
+footer{background:var(--navy);color:var(--on-navy-mute);font-size:13px;padding:0 0 40px;text-align:center}
+footer .wrap{border-top:1px solid rgba(255,255,255,.1);padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer a:hover{color:var(--on-navy)}
+</style>
 </head>
-<body class="intro-lock">
-
-<div class="introOverlay" id="introOverlay" role="button" aria-label="눌러서 건너뛰기">
-  <div class="introLogoWrap">
-    <img src="img/logo-hero-transparent.png" alt="Ventron">
-    <div class="loaderRow">
-      <div class="loaderBarTrack"><div class="loaderBarFill" id="loaderBarFill"></div></div>
-      <div class="loaderPct" id="loaderPct">0%</div>
-    </div>
-    <div class="introTag">AUTOMOTIVE LAMP OPTICS · STAMPING CAE</div>
-  </div>
-</div>
-
-<header class="site transparent" id="siteHeader">
-  <div class="nav">
-    <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
-    <button class="navtoggle" aria-label="메뉴 열기" onclick="this.classList.toggle('open');document.querySelector('.navlinks').classList.toggle('open');document.body.classList.toggle('menu-lock');window.scrollTo(0,0)">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="navlinks">
-      <a href="index.html" class="active">홈</a>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Ventron 홈"><img class="mi" src="img/logo-icon.jpg" alt="Ventron 로고"><span>VENTRON</span></a>
+    <nav aria-label="주요 메뉴">
       <a href="about.html">회사소개</a>
       <a href="business.html">사업분야</a>
       <a href="insights.html">소식</a>
-      <a href="contact.html">문의</a>
-    </div>
+      <a class="cta" href="contact.html">문의</a>
+      <button class="lang" type="button" aria-label="View in English">EN</button>
+    </nav>
   </div>
 </header>
 
-<main>
-  <section class="megahero">
-    <div class="wrap">
-      <span class="eyebrow">AUTOMOTIVE LAMP OPTICS</span>
-      <h1>배광부터 법규 대응까지,<br>양산 전에 해석으로 검증합니다</h1>
-      <p class="sub">자동차 부품사·개발팀을 위해 인테리어 무드램프, DRL, 리어램프의 광학설계·해석을 수행합니다. 시제품 전에 시뮬레이션으로 문제를 찾아, 개발 비용과 일정을 줄입니다.</p>
-      <div class="ctas">
-        <a href="business.html" class="btn btn-primary">사업분야 보기 <span class="btn-arrow">→</span></a>
-        <a href="contact.html" class="btn btn-ghost">문의하기</a>
-      </div>
-    </div>
-    <div class="scrollcue"><span class="line"></span>SCROLL</div>
-  </section>
-
-  <div class="marquee">
-    <div class="track">
-      <span>SPEOS OPTICAL CAE</span><span>AUTOFORM STAMPING CAE</span><span>CATIA</span><span>배광해석</span><span>성형해석</span><span>라이트가이드 최적화</span><span>CLAUDE 기반 해석 자동화 (개발 예정)</span>
-      <span>SPEOS OPTICAL CAE</span><span>AUTOFORM STAMPING CAE</span><span>CATIA</span><span>배광해석</span><span>성형해석</span><span>라이트가이드 최적화</span><span>CLAUDE 기반 해석 자동화 (개발 예정)</span>
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <h1>양산 전에,<br>빛을 먼저 검증합니다.</h1>
+    <p class="sub">자동차 램프 광학설계와 해석. 시제품 전에 시뮬레이션으로 문제를 찾아 개발 비용과 일정을 줄입니다.</p>
+    <div class="btns">
+      <a class="btn p" href="#contact">문의하기</a>
+      <a class="btn g" href="#services">사업분야 보기</a>
     </div>
   </div>
+  <div class="stage" aria-hidden="true">
+    <!-- IMAGE SLOT: 실제 램프 렌더/해석 이미지로 교체할 때 이 svg 전체를 <img>로 바꾸면 됩니다 -->
+    <svg viewBox="0 0 1200 560" xmlns="http://www.w3.org/2000/svg" id="rays">
+      <defs>
+        <linearGradient id="hz" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b80f1b"/><stop offset=".3" stop-color="#ff3b47"/><stop offset=".5" stop-color="#ffc2c6"/><stop offset=".7" stop-color="#ff3b47"/><stop offset="1" stop-color="#b80f1b"/></linearGradient>
+        <radialGradient id="amb" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#e4202d" stop-opacity=".34"/><stop offset="1" stop-color="#e4202d" stop-opacity="0"/></radialGradient>
+        <filter id="f40" filterUnits="userSpaceOnUse" x="-500" y="-300" width="2200" height="1200"><feGaussianBlur stdDeviation="36"/></filter>
+        <filter id="f14" filterUnits="userSpaceOnUse" x="-500" y="-300" width="2200" height="1200"><feGaussianBlur stdDeviation="13"/></filter>
+        <filter id="f4" filterUnits="userSpaceOnUse" x="-500" y="-300" width="2200" height="1200"><feGaussianBlur stdDeviation="3"/></filter>
+      </defs>
+      <ellipse cx="600" cy="300" rx="760" ry="250" fill="url(#amb)"/>
+      <path d="M170 478Q600 520 1030 478" fill="none" stroke="#e4202d" stroke-width="46" stroke-linecap="round" filter="url(#f40)" opacity=".28"/>
+      <path d="M300 482Q600 504 900 482" fill="none" stroke="#ff5a64" stroke-width="6" stroke-linecap="round" filter="url(#f14)" opacity=".35"/>
+      <g class="bar">
+        <path d="M110 300Q600 215 1090 300" fill="none" stroke="#e4202d" stroke-width="130" stroke-linecap="round" filter="url(#f40)" opacity=".55"/>
+        <path d="M170 352Q600 282 1030 352" fill="none" stroke="#ff3b47" stroke-width="22" stroke-linecap="round" filter="url(#f14)" opacity=".55"/>
+        <path d="M110 300Q600 215 1090 300" fill="none" stroke="#ff3b47" stroke-width="44" stroke-linecap="round" filter="url(#f14)" opacity=".85"/>
+        <ellipse cx="600" cy="258" rx="640" ry="2.4" fill="#fff" opacity=".55" filter="url(#f4)"/>
+        <ellipse cx="600" cy="258" rx="280" ry="16" fill="#ff6a73" opacity=".3" filter="url(#f14)"/>
+      </g>
+      <path class="ig" pathLength="1" d="M170 352Q600 282 1030 352" fill="none" stroke="url(#hz)" stroke-width="4" stroke-linecap="round" opacity=".75"/>
+      <path class="ig" pathLength="1" d="M110 300Q600 215 1090 300" fill="none" stroke="url(#hz)" stroke-width="13" stroke-linecap="round"/>
+      <path class="ig" pathLength="1" d="M110 300Q600 215 1090 300" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".92"/>
+    </svg>
+  </div>
+</section>
 
-  <section class="tight" style="padding: 0;">
-    <div class="showcase">
-      <div class="showcard reveal">
-        <span class="num">01</span>
-        <div>
-          <h3>배광 패턴 해석</h3>
-          <p>광선추적 시뮬레이션으로 등광도 곡선과 광도 분포를 산출합니다.</p>
-        </div>
-      </div>
-      <div class="showcard reveal">
-        <span class="num">02</span>
-        <div>
-          <h3>법규 대응 검토</h3>
-          <p>국내외 램프 법규 기준(KMVSS, ECE 등) 충족 여부를 시뮬레이션 단계에서 확인합니다.</p>
-        </div>
-      </div>
-      <div class="showcard reveal">
-        <span class="num">03</span>
-        <div>
-          <h3>라이트가이드 최적화</h3>
-          <p>무드램프·DRL의 라이트가이드 형상을 해석해 광 균일도를 개선합니다.</p>
-        </div>
-      </div>
-      <div class="showcard reveal">
-        <span class="num">04</span>
-        <div>
-          <h3>외판 성형해석 (보조)</h3>
-          <p>프레스 성형 시 두께 감소·파단 위험 구간을 성형한계도(FLD)로 검토합니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="statement">
+  <div class="wrap"><p class="fill">시제품을 만들기 전에, 시뮬레이션으로 문제를 먼저 찾습니다. 그래서 개발 비용과 일정이 줄어듭니다.</p></div>
+</section>
 
-  <section class="statement">
-    <div class="wrap reveal">
-      <span class="eyebrow">OUR APPROACH</span>
-      <h2>등광도 곡선 하나에도<br><strong>설계 변경으로 이어질 근거</strong>를 담습니다.</h2>
+<section class="services" id="services">
+  <div class="wrap">
+    <h2 class="sec-title">램프 개발에 필요한 해석을 한곳에서.</h2>
+    <p class="sec-lead">인테리어 무드램프, DRL, 리어램프의 광학설계·해석을 수행하고, 외판 성형해석까지 다룹니다.</p>
+    <div class="bento">
+      <article class="tile w4 dark">
+        <div class="tx"><h3>배광 패턴 해석</h3><p>광선추적 시뮬레이션으로 등광도 곡선과 광도 분포를 산출합니다.</p></div>
+        <img class="viz" src="img/analysis-isocandela.png" alt="등광도 분포 해석 결과 예시" width="1280" height="800" loading="lazy">
+      </article>
+      <article class="tile w2">
+        <img class="viz" src="img/analysis-photometry.png" alt="법규 측정점 광도 검토 예시" width="1280" height="800" loading="lazy">
+        <div class="tx"><h3>법규 대응 검토</h3><p>KMVSS, ECE 등 국내외 램프 법규 기준 충족 여부를 시뮬레이션 단계에서 확인합니다.</p></div>
+      </article>
+      <article class="tile w2">
+        <img class="viz" src="img/analysis-lightguide.png" alt="라이트가이드 휘도 균일도 예시" width="1280" height="800" loading="lazy">
+        <div class="tx"><h3>라이트가이드 최적화</h3><p>무드램프·DRL의 라이트가이드 형상을 해석해 광 균일도를 개선합니다.</p></div>
+      </article>
+      <article class="tile w4">
+        <span class="note">보조 사업</span>
+        <div class="tx"><h3>외판 성형해석</h3><p>프레스 성형 시 두께 감소와 파단 위험 구간을 성형한계도(FLD)로 검토합니다.</p></div>
+        <img class="viz" src="img/analysis-fld.png" alt="성형한계도 해석 결과 예시" width="1280" height="800" loading="lazy">
+      </article>
     </div>
-  </section>
+    <p class="cap">※ 위 이미지는 이해를 돕기 위한 예시입니다.</p>
+  </div>
+</section>
 
-  <section class="tight">
-    <div class="wrap">
-      <span class="eyebrow">LATEST</span>
-      <div class="postlist newsstrip reveal" style="margin-top:28px;">
-        <a class="postrow" href="posts/01-fld-thickness-check.html">
-          <span class="postdate">2026.08.12</span>
-          <div class="postmain">
-            <h3>성형한계도(FLD)로 두께 감소를 미리 보는 법</h3>
-            <p>프레스 성형 시뮬레이션에서 파단 위험 구간을 판단하는 기준을 정리합니다.</p>
-          </div>
-          <span class="postarrow">읽기 →</span>
-        </a>
-      </div>
+<section class="process" id="process">
+  <div class="wrap">
+    <h2 class="sec-title">의뢰부터 재검증까지.</h2>
+    <p class="sec-lead">도면과 사양만 있으면 시작할 수 있습니다.</p>
+    <ol class="steps">
+      <li><b>1단계</b><h3>자료 전달</h3><p>CAD 데이터와 요구 사양, 적용할 법규 기준을 보내주세요.</p></li>
+      <li><b>2단계</b><h3>해석 수행</h3><p>광학 또는 성형 시뮬레이션으로 문제 구간을 찾습니다.</p></li>
+      <li><b>3단계</b><h3>결과 보고</h3><p>곡선과 분포에 설계 변경으로 이어질 근거를 담아 전달합니다.</p></li>
+      <li><b>4단계</b><h3>재검증</h3><p>변경안을 반영해 다시 해석하고 개선 여부를 확인합니다.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="more" id="news">
+  <div class="wrap">
+    <div class="duo">
+      <article class="card">
+        <div>
+          <small>2026.08.12</small>
+          <h3>성형한계도(FLD)로 두께 감소를 미리 보는 법</h3>
+          <p>프레스 성형 시뮬레이션에서 파단 위험 구간을 판단하는 기준을 정리합니다.</p>
+        </div>
+        <a class="more-l" href="posts/01-fld-thickness-check.html">글 읽기</a>
+      </article>
+      <article class="card">
+        <div>
+          <small>개발 예정</small>
+          <h3>해석 업무를 자동화하는 AI 소프트웨어</h3>
+          <p>반복되는 해석 작업을 줄이는 도구를 개발할 예정입니다.</p>
+        </div>
+        <p class="tools">사용 도구&nbsp; <b>SPEOS</b>, <b>AutoForm</b>, <b>CATIA</b></p>
+      </article>
     </div>
-  </section>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>양산 전에 확인하고 싶은<br>부품이 있나요?</h2>
+    <p class="sub">도면과 요구 사양을 보내주세요. 어떤 해석이 필요한지부터 함께 정리해 드립니다.</p>
+    <div class="btns"><a class="btn p" href="mailto:jbkim@ventron.co.kr">메일로 문의하기</a></div>
+    <a class="mail" href="mailto:jbkim@ventron.co.kr">jbkim@ventron.co.kr</a>
+    <p class="addr">경기도 평택시 비전2로 195, 209-47호</p>
+  </div>
+</section>
 </main>
 
-<footer class="site">
-  <div class="wrap footupper">
-    <div class="footcol">
-      <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
-      <p class="brandline">자동차 램프 광학설계 및 해석 · 외판 금형성형해석을 수행하는 엔지니어링 해석 기업입니다.</p>
-      <div class="footsocial" style="margin-top:16px;">
-        <a href="mailto:jbkim@ventron.co.kr" aria-label="이메일">@</a>
-      </div>
-    </div>
-    <div class="footcol">
-      <span class="tag">MENU</span>
-      <ul>
-        <li><a href="index.html">홈</a></li>
-        <li><a href="about.html">회사소개</a></li>
-        <li><a href="business.html">사업분야</a></li>
-        <li><a href="insights.html">소식</a></li>
-        <li><a href="contact.html">문의</a></li>
-      </ul>
-    </div>
-    <div class="footcol">
-      <span class="tag">CONTACT</span>
-      <ul>
-        <li><a href="mailto:jbkim@ventron.co.kr">jbkim@ventron.co.kr</a></li>
-        <li style="color:var(--text-dim); font-size:14px;">경기도 평택시 비전2로 195, 209-47호</li>
-        <li><a href="contact.html">문의하기 →</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="wrap footbottom">
-    <span>© 2026 Ventron. All rights reserved. · <a href="privacy/index.html">개인정보처리방침</a></span>
-    <div class="toolbadges">
-      <span>SPEOS</span><span>AutoForm</span><span>CATIA</span>
-    </div>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Ventron. All rights reserved.</span>
+    <span class="fl"><a href="about.html">회사소개</a><a href="business.html">사업분야</a><a href="insights.html">소식</a><a href="contact.html">문의</a><a href="privacy/index.html">개인정보처리방침</a></span>
   </div>
 </footer>
 
-<script src="script.js" defer></script>
-
+<script>
+document.documentElement.classList.add('js');
+// 스크롤 문장 채움 효과 + 한국어/영어 전환
+(function(){
+  var el=document.querySelector('.fill'),sp=[];
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function update(){
+    var r=el.getBoundingClientRect(),p=reduce?1:(innerHeight*0.88-r.top)/(innerHeight*0.55);
+    p=Math.max(0,Math.min(1,p));
+    for(var i=0;i<sp.length;i++)sp[i].classList.toggle('on',i/sp.length<p||p>=1);
+  }
+  function build(t){
+    el.innerHTML=t.trim().split(/\s+/).map(function(w){return '<span>'+w+'</span>'}).join(' ');
+    sp=el.querySelectorAll('span');update();
+  }
+  addEventListener('scroll',update,{passive:true});addEventListener('resize',update);
+  var fillKo=el.textContent.trim();
+  var fillEn='We find problems in simulation before a prototype is built. That is how development cost and schedule come down.';
+  var D=[
+    ['회사소개','About'],['사업분야','Services'],['※ 위 이미지는 이해를 돕기 위한 예시입니다.','Images above are illustrative examples.'],['진행 방식','Process'],['소식','News'],['문의','Contact'],
+    ['양산 전에, 빛을 먼저 검증합니다.','Verify the light<br>before mass production.'],
+    ['자동차 램프 광학설계와 해석. 시제품 전에 시뮬레이션으로 문제를 찾아 개발 비용과 일정을 줄입니다.','Optical design and analysis for automotive lamps. We find problems by simulation before prototypes, cutting development cost and schedule.'],
+    ['문의하기','Contact us'],['사업분야 보기','View services'],
+    ['램프 개발에 필요한 해석을 한곳에서.','The analysis lamp development needs, in one place.'],
+    ['인테리어 무드램프, DRL, 리어램프의 광학설계·해석을 수행하고, 외판 성형해석까지 다룹니다.','We perform optical design and analysis for interior mood lamps, DRLs and rear lamps, and also cover outer-panel forming analysis.'],
+    ['배광 패턴 해석','Light distribution analysis'],
+    ['광선추적 시뮬레이션으로 등광도 곡선과 광도 분포를 산출합니다.','Ray-tracing simulation produces isocandela curves and luminous intensity distributions.'],
+    ['법규 대응 검토','Regulation compliance review'],
+    ['KMVSS, ECE 등 국내외 램프 법규 기준 충족 여부를 시뮬레이션 단계에서 확인합니다.','We check compliance with domestic and international lamp regulations such as KMVSS and ECE at the simulation stage.'],
+    ['라이트가이드 최적화','Light guide optimization'],
+    ['무드램프·DRL의 라이트가이드 형상을 해석해 광 균일도를 개선합니다.','We analyze light guide geometry in mood lamps and DRLs to improve light uniformity.'],
+    ['보조 사업','Secondary service'],['외판 성형해석','Outer-panel forming analysis'],
+    ['프레스 성형 시 두께 감소와 파단 위험 구간을 성형한계도(FLD)로 검토합니다.','We review thinning and fracture-risk zones in press forming with forming limit diagrams (FLD).'],
+    ['의뢰부터 재검증까지.','From request to re-verification.'],
+    ['도면과 사양만 있으면 시작할 수 있습니다.','Drawings and specifications are all you need to start.'],
+    ['1단계','Step 1'],['2단계','Step 2'],['3단계','Step 3'],['4단계','Step 4'],
+    ['자료 전달','Send data'],['CAD 데이터와 요구 사양, 적용할 법규 기준을 보내주세요.','Send CAD data, requirements and the applicable regulations.'],
+    ['해석 수행','Analysis'],['광학 또는 성형 시뮬레이션으로 문제 구간을 찾습니다.','Optical or forming simulation locates the problem areas.'],
+    ['결과 보고','Report'],['곡선과 분포에 설계 변경으로 이어질 근거를 담아 전달합니다.','Curves and distributions come with the evidence behind each design change.'],
+    ['재검증','Re-verification'],['변경안을 반영해 다시 해석하고 개선 여부를 확인합니다.','We re-run the analysis on the revised design and confirm the improvement.'],
+    ['성형한계도(FLD)로 두께 감소를 미리 보는 법','Previewing thickness reduction with the forming limit diagram (FLD)'],
+    ['프레스 성형 시뮬레이션에서 파단 위험 구간을 판단하는 기준을 정리합니다.','A summary of how to judge fracture-risk zones in press forming simulation.'],
+    ['글 읽기','Read the post (Korean)'],
+    ['개발 예정','In development'],['해석 업무를 자동화하는 AI 소프트웨어','AI software that automates analysis work'],
+    ['반복되는 해석 작업을 줄이는 도구를 개발할 예정입니다.','We plan to develop tools that cut repetitive analysis work.'],
+    ['사용 도구 SPEOS, AutoForm, CATIA','Tools&nbsp; <b>SPEOS</b>, <b>AutoForm</b>, <b>CATIA</b>'],
+    ['양산 전에 확인하고 싶은 부품이 있나요?','Have a part you want<br>verified before production?'],['메일로 문의하기','Email us'],
+    ['도면과 요구 사양을 보내주세요. 어떤 해석이 필요한지부터 함께 정리해 드립니다.','Send the drawing and requirements. We will help you work out which analysis you need first.'],
+    ['경기도 평택시 비전2로 195, 209-47호','195, Bijeon 2-ro, Pyeongtaek-si, Gyeonggi-do, Korea (Room 209-47)'],
+    ['개인정보처리방침','Privacy policy']
+  ];
+  var norm=function(t){return t.replace(/\s+/g,'')},map={},nodes=[];
+  D.forEach(function(d){map[norm(d[0])]=d[1]});
+  document.querySelectorAll('h1,h2,h3,p,small,a,span,b').forEach(function(n){
+    if(n.closest('.fill'))return;
+    var k=norm(n.textContent);
+    if(map[k]!==undefined){n.dataset.ko=n.innerHTML;nodes.push([n,map[k]])}
+  });
+  var btn=document.querySelector('.lang');
+  function set(l){
+    nodes.forEach(function(x){x[0].innerHTML=l==='en'?x[1]:x[0].dataset.ko});
+    build(l==='en'?fillEn:fillKo);
+    document.documentElement.lang=l;
+    document.title=l==='en'?'Ventron | Optical design and analysis for automotive lamps':'벤트론 | Ventron — 자동차 램프 광학설계 및 해석';
+    btn.textContent=l==='en'?'KO':'EN';
+    btn.setAttribute('aria-label',l==='en'?'한국어로 보기':'View in English');
+    try{localStorage.setItem('lang',l)}catch(e){}
+  }
+  var cur='ko';
+  try{cur=localStorage.getItem('lang')||((navigator.language||'').slice(0,2)==='en'?'en':'ko')}catch(e){}
+  build(fillKo);
+  if(cur==='en')set('en');
+  btn.addEventListener('click',function(){cur=cur==='en'?'ko':'en';set(cur)});
+})();
+</script>
 </body>
 </html>
