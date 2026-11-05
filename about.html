@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>회사소개 | 벤트론 Ventron</title>
-<meta name="description" content="자동차 램프 광학설계 및 해석 전문 기업, 벤트론의 엔지니어링 철학과 역량을 소개합니다.">
-<link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-ko="회사소개 | 벤트론 Ventron">About | Ventron</title>
+<meta content="Ventron is an engineering firm for automotive lamp optical design and analysis. Our approach and capabilities." data-ko-content="자동차 램프 광학설계 및 해석 전문 기업, 벤트론의 엔지니어링 철학과 역량을 소개합니다." name="description"/>
+<link href="style.css" rel="stylesheet"/>
 <style>
   .philgrid{
     display: grid;
@@ -47,138 +48,131 @@
 </style>
 </head>
 <body>
-
 <header class="site">
-  <div class="nav">
-    <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
-    <button class="navtoggle" aria-label="메뉴 열기" onclick="this.classList.toggle('open');document.querySelector('.navlinks').classList.toggle('open');document.body.classList.toggle('menu-lock');window.scrollTo(0,0)">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="navlinks">
-      <a href="index.html">홈</a>
-      <a href="about.html" class="active">회사소개</a>
-      <a href="business.html">사업분야</a>
-      <a href="insights.html">소식</a>
-      <a href="contact.html">문의</a>
-    </div>
-  </div>
+<div class="nav">
+<a class="logo" href="index.html"><img alt="Ventron logo" class="mark-icon" data-ko-alt="Ventron 로고" src="img/logo-icon.jpg"/>VENTRON</a>
+<button aria-label="Open menu" class="navtoggle" data-ko-aria-label="메뉴 열기" onclick="this.classList.toggle('open');document.querySelector('.navlinks').classList.toggle('open');document.body.classList.toggle('menu-lock');window.scrollTo(0,0)">
+<span></span><span></span><span></span>
+</button>
+<div class="navlinks">
+<a data-ko="홈" href="index.html">Home</a>
+<a class="active" data-ko="회사소개" href="about.html">About</a>
+<a data-ko="사업분야" href="business.html">Services</a>
+<a data-ko="소식" href="insights.html">News</a>
+<a data-ko="문의" href="contact.html">Contact</a>
+</div>
+</div>
 </header>
-
 <main>
-  <div class="wrap pagehead">
-    <span class="eyebrow">ABOUT VENTRON</span>
-    <h1>계산 가능한 것부터,<br>정확하게 만듭니다.</h1>
-    <p>벤트론은 자동차 램프의 배광 성능을 해석으로 검증하는 엔지니어링 기업입니다. 외판 부품 성형해석도 함께 수행합니다.</p>
-  </div>
-
-  <section>
-    <div class="wrap philgrid">
-      <div>
-        <h2>왜 해석인가</h2>
-        <p>자동차 부품 하나 만드는 데 금형 제작하고, 시제품 뽑고, 문제 생기면 또 고치고. 이 과정이 반복될수록 시간이랑 돈이 같이 나갑니다. 시뮬레이션으로 미리 걸러내면 이 반복을 줄일 수 있습니다.</p>
-        <p>램프는 실제로 켜보기 전에 배광이 법규에 맞는지, 원하는 느낌이 나오는지 알기 어렵습니다. 외판 부품도 마찬가지로 프레스로 찍어보기 전엔 어디서 두께가 얇아지고 어디서 찢어질지 모릅니다. 저희가 하는 일은 그걸 찍어보기 전에, 켜보기 전에 미리 확인하는 겁니다.</p>
-        <p>해석 결과를 그냥 숫자표나 컬러맵으로만 드리지는 않습니다. 어디를 어떻게 바꾸면 되는지까지 정리해서 전달합니다.</p>
-      </div>
-      <div class="blueprint reveal" role="img" aria-label="측정 격자와 단면 곡선이 표현된 기술 도면 이미지">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="g" width="24" height="24" patternUnits="userSpaceOnUse">
-              <path d="M24 0H0V24" fill="none" stroke="#1c2740" stroke-width="1"/>
-            </pattern>
-          </defs>
-          <rect width="400" height="300" fill="url(#g)"/>
-          <path d="M20 220 C 90 160, 140 260, 200 190 C 250 130, 300 150, 380 90" stroke="#4fd1e8" stroke-width="1.6" fill="none" opacity="0.85"/>
-          <circle cx="20" cy="220" r="3" fill="#4fd1e8"/>
-          <circle cx="200" cy="190" r="3" fill="#4fd1e8"/>
-          <circle cx="380" cy="90" r="3" fill="#4fd1e8"/>
-          <circle cx="330" cy="60" r="3" fill="#f2b84b"/>
-          <g stroke="#f2b84b" stroke-width="1" opacity="0.55">
-            <line x1="330" y1="60" x2="240" y2="150"/>
-            <line x1="330" y1="60" x2="260" y2="190"/>
-            <line x1="330" y1="60" x2="285" y2="225"/>
-          </g>
-          <text x="16" y="288" fill="#57647a" font-family="IBM Plex Mono, monospace" font-size="9">SCALE 1:1 · REV.02</text>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <span class="eyebrow">HOW WE WORK</span>
-      <div class="capslist" style="margin-top:28px;">
-        <div class="capitem reveal">
-          <span class="tag">PRECISION</span>
-          <h3>재현이 아닌 예측</h3>
-          <p>현상을 사후에 설명하는 해석이 아니라, 설계 변경 전에 결과를 예측하는 해석을 지향합니다.</p>
-        </div>
-        <div class="capitem reveal">
-          <span class="tag">TURNAROUND</span>
-          <h3>개발 일정에 맞춘 대응</h3>
-          <p>완성차·부품사의 개발 단계별 마감에 맞춰 검토 범위와 속도를 조정합니다.</p>
-        </div>
-        <div class="capitem reveal">
-          <span class="tag">CLARITY</span>
-          <h3>결정을 위한 리포트</h3>
-          <p>수치와 컬러맵을 그대로 전달하지 않고, 설계팀이 바로 판단할 수 있는 형태로 정리합니다.</p>
-        </div>
-        <div class="capitem reveal">
-          <span class="tag">SCOPE</span>
-          <h3>광학 해석에 집중</h3>
-          <p>여러 영역을 얕게 다루기보다, 램프 광학해석을 중심으로 깊이 파고들고 외판 성형해석으로 영역을 넓힙니다.</p>
-        </div>
-        <div class="capitem reveal">
-          <span class="tag">TOOLS</span>
-          <h3>SPEOS · AutoForm · CATIA</h3>
-          <p>광학해석은 SPEOS, 성형해석은 AutoForm, 형상 설계·검토는 CATIA를 사용합니다.</p>
-        </div>
-        <div class="capitem reveal">
-          <span class="tag">R&amp;D</span>
-          <h3>Claude 기반 해석 가속 툴 개발 중</h3>
-          <p>라이트가이드 최적화는 형상 조정과 재해석을 수십 번 반복해야 해서 시간이 많이 걸립니다. Claude API로 반복 구간의 다음 조정값을 제안하고, 해석 결과를 리포트 초안으로 정리하는 내부 툴을 개발하고 있습니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="wrap pagehead">
+<span class="eyebrow">ABOUT VENTRON</span>
+<h1 data-ko="먼저 계산하고,&lt;br/&gt;그다음에 만듭니다.">Calculate first.<br/>Then build.</h1>
+<p data-ko="벤트론은 자동차 램프의 배광 성능을 해석으로 검증하는 엔지니어링 기업입니다. 외판 부품 성형해석도 함께 수행합니다.">Ventron is an engineering firm that verifies the light distribution of automotive lamps by analysis. We also run forming analysis for outer-panel parts.</p>
+</div>
+<section>
+<div class="wrap philgrid">
+<div>
+<h2 data-ko="왜 해석인가">Why analysis</h2>
+<p data-ko="자동차 부품 하나 만드는 데 금형 제작하고, 시제품 뽑고, 문제 생기면 또 고치고. 이 과정이 반복될수록 시간이랑 돈이 같이 나갑니다. 시뮬레이션으로 미리 걸러내면 이 반복을 줄일 수 있습니다.">Making one automotive part means cutting a mold, pulling a prototype, and fixing whatever goes wrong, then doing it again. Every pass costs time and money. Simulation catches problems earlier and cuts the number of passes.</p>
+<p data-ko="램프는 실제로 켜보기 전에 배광이 법규에 맞는지, 원하는 느낌이 나오는지 알기 어렵습니다. 외판 부품도 마찬가지로 프레스로 찍어보기 전엔 어디서 두께가 얇아지고 어디서 찢어질지 모릅니다. 저희가 하는 일은 그걸 찍어보기 전에, 켜보기 전에 미리 확인하는 겁니다.">With a lamp, you cannot tell whether the light distribution meets regulations, or whether it looks the way you intended, until you switch it on. With an outer panel, you do not know where the sheet thins or tears until you press it. Our job is to find that out before you switch it on and before you press it.</p>
+<p data-ko="해석 결과를 그냥 숫자표나 컬러맵으로만 드리지는 않습니다. 어디를 어떻게 바꾸면 되는지까지 정리해서 전달합니다.">We do not hand over a table of numbers or a color map. We tell you what to change, and where.</p>
+</div>
+<div aria-label="측정 격자와 단면 곡선이 표현된 기술 도면 이미지" class="blueprint reveal" role="img">
+<svg viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="24" id="g" patternunits="userSpaceOnUse" width="24">
+<path d="M24 0H0V24" fill="none" stroke="#1c2740" stroke-width="1"></path>
+</pattern>
+</defs>
+<rect fill="url(#g)" height="300" width="400"></rect>
+<path d="M20 220 C 90 160, 140 260, 200 190 C 250 130, 300 150, 380 90" fill="none" opacity="0.85" stroke="#4fd1e8" stroke-width="1.6"></path>
+<circle cx="20" cy="220" fill="#4fd1e8" r="3"></circle>
+<circle cx="200" cy="190" fill="#4fd1e8" r="3"></circle>
+<circle cx="380" cy="90" fill="#4fd1e8" r="3"></circle>
+<circle cx="330" cy="60" fill="#f2b84b" r="3"></circle>
+<g opacity="0.55" stroke="#f2b84b" stroke-width="1">
+<line x1="330" x2="240" y1="60" y2="150"></line>
+<line x1="330" x2="260" y1="60" y2="190"></line>
+<line x1="330" x2="285" y1="60" y2="225"></line>
+</g>
+<text fill="#57647a" font-family="IBM Plex Mono, monospace" font-size="9" x="16" y="288">SCALE 1:1 · REV.02</text>
+</svg>
+</div>
+</div>
+</section>
+<section>
+<div class="wrap">
+<span class="eyebrow">HOW WE WORK</span>
+<div class="capslist" style="margin-top:28px;">
+<div class="capitem reveal">
+<span class="tag">PRECISION</span>
+<h3 data-ko="재현이 아닌 예측">Prediction, not replay</h3>
+<p data-ko="현상을 사후에 설명하는 해석이 아니라, 설계 변경 전에 결과를 예측하는 해석을 지향합니다.">We aim for analysis that predicts the result before a design change, not analysis that explains it afterwards.</p>
+</div>
+<div class="capitem reveal">
+<span class="tag">TURNAROUND</span>
+<h3 data-ko="개발 일정에 맞춘 대응">Fits your schedule</h3>
+<p data-ko="완성차·부품사의 개발 단계별 마감에 맞춰 검토 범위와 속도를 조정합니다.">Scope and speed are adjusted to each development milestone of OEMs and suppliers.</p>
+</div>
+<div class="capitem reveal">
+<span class="tag">CLARITY</span>
+<h3 data-ko="결정을 위한 리포트">Reports built for decisions</h3>
+<p data-ko="수치와 컬러맵을 그대로 전달하지 않고, 설계팀이 바로 판단할 수 있는 형태로 정리합니다.">Numbers and color maps are not passed on raw. They are organized so the design team can decide right away.</p>
+</div>
+<div class="capitem reveal">
+<span class="tag">SCOPE</span>
+<h3 data-ko="광학 해석에 집중">Focused on optics</h3>
+<p data-ko="여러 영역을 얕게 다루기보다, 램프 광학해석을 중심으로 깊이 파고들고 외판 성형해석으로 영역을 넓힙니다.">Rather than covering many fields thinly, we go deep on lamp optical analysis and extend into outer-panel forming analysis.</p>
+</div>
+<div class="capitem reveal">
+<span class="tag">TOOLS</span>
+<h3>SPEOS · AutoForm · CATIA</h3>
+<p data-ko="광학해석은 SPEOS, 성형해석은 AutoForm, 형상 설계·검토는 CATIA를 사용합니다.">SPEOS for optical analysis, AutoForm for forming analysis, CATIA for geometry design and review.</p>
+</div>
+<div class="capitem reveal">
+<span class="tag">R&amp;D</span>
+<h3 data-ko="Claude 기반 해석 가속 툴 개발 중">Analysis acceleration tool, in development</h3>
+<p data-ko="라이트가이드 최적화는 형상 조정과 재해석을 수십 번 반복해야 해서 시간이 많이 걸립니다. Claude API로 반복 구간의 다음 조정값을 제안하고, 해석 결과를 리포트 초안으로 정리하는 내부 툴을 개발하고 있습니다.">Light guide optimization means adjusting the geometry and re-running the analysis dozens of times. We are building an internal tool on the Claude API that suggests the next adjustment for each iteration and drafts the report from the results.</p>
+</div>
+</div>
+</div>
+</section>
 </main>
-
 <footer class="site">
-  <div class="wrap footupper">
-    <div class="footcol">
-      <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
-      <p class="brandline">자동차 램프 광학설계 및 해석 · 외판 금형성형해석을 수행하는 엔지니어링 해석 기업입니다.</p>
-      <div class="footsocial" style="margin-top:16px;">
-        <a href="mailto:contact@ventron.co.kr" aria-label="이메일">@</a>
-      </div>
-    </div>
-    <div class="footcol">
-      <span class="tag">MENU</span>
-      <ul>
-        <li><a href="index.html">홈</a></li>
-        <li><a href="about.html">회사소개</a></li>
-        <li><a href="business.html">사업분야</a></li>
-        <li><a href="insights.html">소식</a></li>
-        <li><a href="contact.html">문의</a></li>
-      </ul>
-    </div>
-    <div class="footcol">
-      <span class="tag">CONTACT</span>
-      <ul>
-        <li><a href="mailto:contact@ventron.co.kr">contact@ventron.co.kr</a></li>
-        <li style="color:var(--text-dim); font-size:14px;">경기도 평택시 비전2로 195, 209-47호</li>
-        <li><a href="contact.html">문의하기 →</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="wrap footbottom">
-    <span>© 2026 Ventron. All rights reserved. · <a href="privacy/index.html">개인정보처리방침</a></span>
-    <div class="toolbadges">
-      <span>SPEOS</span><span>AutoForm</span><span>CATIA</span>
-    </div>
-  </div>
+<div class="wrap footupper">
+<div class="footcol">
+<a class="logo" href="index.html"><img alt="Ventron logo" class="mark-icon" data-ko-alt="Ventron 로고" src="img/logo-icon.jpg"/>VENTRON</a>
+<p class="brandline" data-ko="자동차 램프 광학설계·해석과 외판 금형성형해석.">Optical design and analysis for automotive lamps, and forming analysis for outer panels.</p>
+<div class="footsocial" style="margin-top:16px;">
+<a aria-label="이메일" href="mailto:contact@ventron.co.kr">@</a>
+</div>
+</div>
+<div class="footcol">
+<span class="tag">MENU</span>
+<ul>
+<li><a data-ko="홈" href="index.html">Home</a></li>
+<li><a data-ko="회사소개" href="about.html">About</a></li>
+<li><a data-ko="사업분야" href="business.html">Services</a></li>
+<li><a data-ko="소식" href="insights.html">News</a></li>
+<li><a data-ko="문의" href="contact.html">Contact</a></li>
+</ul>
+</div>
+<div class="footcol">
+<span class="tag">CONTACT</span>
+<ul>
+<li><a href="mailto:contact@ventron.co.kr">contact@ventron.co.kr</a></li>
+<li data-ko="경기도 평택시 비전2로 195, 209-47호" style="color:var(--text-dim); font-size:14px;">195, Bijeon 2-ro, Pyeongtaek-si, Gyeonggi-do, Korea (Room 209-47)</li>
+<li><a data-ko="문의하기 →" href="contact.html">Contact us →</a></li>
+</ul>
+</div>
+</div>
+<div class="wrap footbottom">
+<span>© 2026 Ventron. All rights reserved. · <a data-ko="개인정보처리방침" href="privacy/index.html">Privacy policy</a></span>
+<div class="toolbadges">
+<span>SPEOS</span><span>AutoForm</span><span>CATIA</span>
+</div>
+</div>
 </footer>
-
-<script src="script.js" defer></script>
-
+<script defer="" src="script.js"></script><script defer="" src="lang.js"></script>
 </body>
 </html>

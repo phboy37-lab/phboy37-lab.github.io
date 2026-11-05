@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>문의 | 벤트론 Ventron</title>
-<meta name="description" content="벤트론에 프로젝트를 문의하세요.">
-<link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-ko="문의 | 벤트론 Ventron">Contact | Ventron</title>
+<meta content="Send your project to Ventron." data-ko-content="벤트론에 프로젝트를 문의하세요." name="description"/>
+<link href="style.css" rel="stylesheet"/>
 <style>
   .contactgrid{
     display: grid;
@@ -52,105 +53,95 @@
 </style>
 </head>
 <body>
-
 <header class="site">
-  <div class="nav">
-    <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
-    <button class="navtoggle" aria-label="메뉴 열기" onclick="this.classList.toggle('open');document.querySelector('.navlinks').classList.toggle('open');document.body.classList.toggle('menu-lock');window.scrollTo(0,0)">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="navlinks">
-      <a href="index.html">홈</a>
-      <a href="about.html">회사소개</a>
-      <a href="business.html">사업분야</a>
-      <a href="insights.html">소식</a>
-      <a href="contact.html" class="active">문의</a>
-    </div>
-  </div>
+<div class="nav">
+<a class="logo" href="index.html"><img alt="Ventron logo" class="mark-icon" data-ko-alt="Ventron 로고" src="img/logo-icon.jpg"/>VENTRON</a>
+<button aria-label="Open menu" class="navtoggle" data-ko-aria-label="메뉴 열기" onclick="this.classList.toggle('open');document.querySelector('.navlinks').classList.toggle('open');document.body.classList.toggle('menu-lock');window.scrollTo(0,0)">
+<span></span><span></span><span></span>
+</button>
+<div class="navlinks">
+<a data-ko="홈" href="index.html">Home</a>
+<a data-ko="회사소개" href="about.html">About</a>
+<a data-ko="사업분야" href="business.html">Services</a>
+<a data-ko="소식" href="insights.html">News</a>
+<a class="active" data-ko="문의" href="contact.html">Contact</a>
+</div>
+</div>
 </header>
-
 <main>
-  <div class="wrap pagehead">
-    <span class="eyebrow">GET IN TOUCH</span>
-    <h1>프로젝트를 문의하세요</h1>
-    <p>진행 중인 과제나 검토가 필요한 도면이 있다면 이메일로 편하게 연락해 주세요. 확인 후 빠르게 회신드립니다.</p>
-  </div>
-
-  <section>
-    <div class="wrap contactgrid">
-      <div>
-        <div class="infoline">
-          <span class="label">Email</span>
-          <a class="value" href="mailto:contact@ventron.co.kr">contact@ventron.co.kr</a>
-        </div>
-        <div class="infoline">
-          <span class="label">Domain</span>
-          <span class="value">ventron.co.kr</span>
-        </div>
-        <div class="infoline">
-          <span class="label">Address</span>
-          <span class="value">경기도 평택시 비전2로 195, 209-47호</span>
-        </div>
-        <div class="infoline">
-          <span class="label">Business</span>
-          <span class="value">자동차 램프 광학설계 및 해석 · 외판 금형성형해석</span>
-        </div>
-
-        <ul class="checklist">
-          <li>메일 제목에 프로젝트명 또는 부품명을 적어주시면 검토가 빠릅니다.</li>
-          <li>도면·CAD 파일이 있다면 첨부해 주세요.</li>
-          <li>희망 일정이 있다면 함께 알려주세요.</li>
-        </ul>
-      </div>
-
-      <div class="askcard reveal">
-        <span class="eyebrow">CONTACT</span>
-        <p>메일로 프로젝트 개요, 검토가 필요한 부품, 희망 일정을 보내주시면 확인 후 회신드립니다.</p>
-        <a class="btn btn-primary" href="mailto:contact@ventron.co.kr?subject=%5B%EB%AC%B8%EC%9D%98%5D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EA%B4%80%EB%A0%A8%20%EB%AC%B8%EC%9D%98">
-          이메일로 문의하기 <span class="btn-arrow">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
+<div class="wrap pagehead">
+<span class="eyebrow">GET IN TOUCH</span>
+<h1 data-ko="프로젝트를 문의하세요">Send us your project</h1>
+<p data-ko="진행 중인 과제나 검토가 필요한 도면이 있다면 이메일로 편하게 연락해 주세요. 확인 후 빠르게 회신드립니다.">If you have a project in progress or a drawing that needs review, email us. We reply quickly.</p>
+</div>
+<section>
+<div class="wrap contactgrid">
+<div>
+<div class="infoline">
+<span class="label">Email</span>
+<a class="value" href="mailto:contact@ventron.co.kr">contact@ventron.co.kr</a>
+</div>
+<div class="infoline">
+<span class="label">Domain</span>
+<span class="value">ventron.co.kr</span>
+</div>
+<div class="infoline">
+<span class="label">Address</span>
+<span class="value" data-ko="경기도 평택시 비전2로 195, 209-47호">195, Bijeon 2-ro, Pyeongtaek-si, Gyeonggi-do, Korea (Room 209-47)</span>
+</div>
+<div class="infoline">
+<span class="label">Business</span>
+<span class="value" data-ko="자동차 램프 광학설계 및 해석 · 외판 금형성형해석">Automotive lamp optical design and analysis · Outer-panel forming analysis</span>
+</div>
+<ul class="checklist">
+<li data-ko="메일 제목에 프로젝트명 또는 부품명을 적어주시면 검토가 빠릅니다.">Put the project or part name in the subject line. It speeds up our review.</li>
+<li data-ko="도면·CAD 파일이 있다면 첨부해 주세요.">Attach drawings or CAD files if you have them.</li>
+<li data-ko="희망 일정이 있다면 함께 알려주세요.">Tell us your target schedule, if there is one.</li>
+</ul>
+</div>
+<div class="askcard reveal">
+<span class="eyebrow">CONTACT</span>
+<p data-ko="메일로 프로젝트 개요, 검토가 필요한 부품, 희망 일정을 보내주시면 확인 후 회신드립니다.">Send a project outline, the parts to review and your target schedule by email. We will reply after checking.</p>
+<a class="btn btn-primary" data-ko='이메일로 문의하기 &lt;span class="btn-arrow"&gt;→&lt;/span&gt;' data-ko-href="mailto:contact@ventron.co.kr?subject=%5B%EB%AC%B8%EC%9D%98%5D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EA%B4%80%EB%A0%A8%20%EB%AC%B8%EC%9D%98" href="mailto:contact@ventron.co.kr?subject=%5BInquiry%5D%20Project%20inquiry">Email us <span class="btn-arrow">→</span></a>
+</div>
+</div>
+</section>
 </main>
-
 <footer class="site">
-  <div class="wrap footupper">
-    <div class="footcol">
-      <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
-      <p class="brandline">자동차 램프 광학설계 및 해석 · 외판 금형성형해석을 수행하는 엔지니어링 해석 기업입니다.</p>
-      <div class="footsocial" style="margin-top:16px;">
-        <a href="mailto:contact@ventron.co.kr" aria-label="이메일">@</a>
-      </div>
-    </div>
-    <div class="footcol">
-      <span class="tag">MENU</span>
-      <ul>
-        <li><a href="index.html">홈</a></li>
-        <li><a href="about.html">회사소개</a></li>
-        <li><a href="business.html">사업분야</a></li>
-        <li><a href="insights.html">소식</a></li>
-        <li><a href="contact.html">문의</a></li>
-      </ul>
-    </div>
-    <div class="footcol">
-      <span class="tag">CONTACT</span>
-      <ul>
-        <li><a href="mailto:contact@ventron.co.kr">contact@ventron.co.kr</a></li>
-        <li style="color:var(--text-dim); font-size:14px;">경기도 평택시 비전2로 195, 209-47호</li>
-        <li><a href="contact.html">문의하기 →</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="wrap footbottom">
-    <span>© 2026 Ventron. All rights reserved. · <a href="privacy/index.html">개인정보처리방침</a></span>
-    <div class="toolbadges">
-      <span>SPEOS</span><span>AutoForm</span><span>CATIA</span>
-    </div>
-  </div>
+<div class="wrap footupper">
+<div class="footcol">
+<a class="logo" href="index.html"><img alt="Ventron logo" class="mark-icon" data-ko-alt="Ventron 로고" src="img/logo-icon.jpg"/>VENTRON</a>
+<p class="brandline" data-ko="자동차 램프 광학설계·해석과 외판 금형성형해석.">Optical design and analysis for automotive lamps, and forming analysis for outer panels.</p>
+<div class="footsocial" style="margin-top:16px;">
+<a aria-label="이메일" href="mailto:contact@ventron.co.kr">@</a>
+</div>
+</div>
+<div class="footcol">
+<span class="tag">MENU</span>
+<ul>
+<li><a data-ko="홈" href="index.html">Home</a></li>
+<li><a data-ko="회사소개" href="about.html">About</a></li>
+<li><a data-ko="사업분야" href="business.html">Services</a></li>
+<li><a data-ko="소식" href="insights.html">News</a></li>
+<li><a data-ko="문의" href="contact.html">Contact</a></li>
+</ul>
+</div>
+<div class="footcol">
+<span class="tag">CONTACT</span>
+<ul>
+<li><a href="mailto:contact@ventron.co.kr">contact@ventron.co.kr</a></li>
+<li data-ko="경기도 평택시 비전2로 195, 209-47호" style="color:var(--text-dim); font-size:14px;">195, Bijeon 2-ro, Pyeongtaek-si, Gyeonggi-do, Korea (Room 209-47)</li>
+<li><a data-ko="문의하기 →" href="contact.html">Contact us →</a></li>
+</ul>
+</div>
+</div>
+<div class="wrap footbottom">
+<span>© 2026 Ventron. All rights reserved. · <a data-ko="개인정보처리방침" href="privacy/index.html">Privacy policy</a></span>
+<div class="toolbadges">
+<span>SPEOS</span><span>AutoForm</span><span>CATIA</span>
+</div>
+</div>
 </footer>
-
-<script src="script.js" defer></script>
-
+<script defer="" src="script.js"></script><script defer="" src="lang.js"></script>
 </body>
 </html>

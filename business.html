@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>사업분야 | 벤트론 Ventron</title>
-<meta name="description" content="벤트론의 자동차 램프 광학설계 및 해석, 외판 금형성형해석 서비스를 소개합니다.">
-<link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-ko="사업분야 | 벤트론 Ventron">Services | Ventron</title>
+<meta content="Optical design and analysis for automotive lamps, and forming analysis for outer panels." data-ko-content="벤트론의 자동차 램프 광학설계 및 해석, 외판 금형성형해석 서비스를 소개합니다." name="description"/>
+<link href="style.css" rel="stylesheet"/>
 <style>
   .svcblock{ padding: 88px 0; }
   .svcblock + .svcblock{ border-top: 1px solid var(--border); }
@@ -69,156 +70,148 @@
 </style>
 </head>
 <body>
-
 <header class="site">
-  <div class="nav">
-    <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
-    <button class="navtoggle" aria-label="메뉴 열기" onclick="this.classList.toggle('open');document.querySelector('.navlinks').classList.toggle('open');document.body.classList.toggle('menu-lock');window.scrollTo(0,0)">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="navlinks">
-      <a href="index.html">홈</a>
-      <a href="about.html">회사소개</a>
-      <a href="business.html" class="active">사업분야</a>
-      <a href="insights.html">소식</a>
-      <a href="contact.html">문의</a>
-    </div>
-  </div>
+<div class="nav">
+<a class="logo" href="index.html"><img alt="Ventron logo" class="mark-icon" data-ko-alt="Ventron 로고" src="img/logo-icon.jpg"/>VENTRON</a>
+<button aria-label="Open menu" class="navtoggle" data-ko-aria-label="메뉴 열기" onclick="this.classList.toggle('open');document.querySelector('.navlinks').classList.toggle('open');document.body.classList.toggle('menu-lock');window.scrollTo(0,0)">
+<span></span><span></span><span></span>
+</button>
+<div class="navlinks">
+<a data-ko="홈" href="index.html">Home</a>
+<a data-ko="회사소개" href="about.html">About</a>
+<a class="active" data-ko="사업분야" href="business.html">Services</a>
+<a data-ko="소식" href="insights.html">News</a>
+<a data-ko="문의" href="contact.html">Contact</a>
+</div>
+</div>
 </header>
-
 <main>
-  <div class="wrap pagehead">
-    <span class="eyebrow">WHAT WE DO</span>
-    <h1>자동차 램프 광학설계 및 해석</h1>
-    <p>배광부터 법규 대응까지, 양산 전에 해석으로 검증합니다. 램프 광학해석을 주력으로, 외판 금형성형해석을 함께 수행합니다.</p>
-  </div>
-
-  <section class="svcblock" id="optics">
-    <div class="wrap">
-      <div class="svchead">
-        <div>
-          <span class="eyebrow">AUTOMOTIVE LAMP OPTICS</span>
-          <h2>자동차 램프 광학설계 및 해석</h2>
-        </div>
-        <span class="svcnum">SPEOS-BASED OPTICAL CAE</span>
-      </div>
-      <div class="svcbody">
-        <div>
-          <p class="desc">인테리어 무드램프, DRL, 리어램프의 광학 시스템을 설계하고 배광 성능을 해석합니다. 특히 라이트가이드 형상 최적화를 통한 광 균일도 개선에 경험이 있습니다. 시제품을 뽑기 전에 법규 기준을 통과하는지, 의도한 디자인이 나오는지를 시뮬레이션으로 먼저 확인합니다. 라이트가이드 최적화는 형상 조정과 재해석을 여러 번 반복해야 해서, 이 과정을 가속하는 Claude 기반 내부 툴을 개발하고 있습니다.</p>
-          <ul class="proc">
-            <li>
-              <span class="step">IN</span>
-              <div>
-                <div class="stepname">광학계 사양 및 디자인 검토</div>
-                <div class="stepdesc">라이트가이드·광원 스펙, 디자인 의도를 파악합니다.</div>
-              </div>
-            </li>
-            <li>
-              <span class="step">SIM</span>
-              <div>
-                <div class="stepname">배광 성능 시뮬레이션</div>
-                <div class="stepdesc">광선추적 해석으로 배광 패턴과 광도 분포를 계산합니다.</div>
-              </div>
-            </li>
-            <li>
-              <span class="step">CHK</span>
-              <div>
-                <div class="stepname">법규·성능 기준 대조</div>
-                <div class="stepdesc">국내외 법규 기준 대비 충족 여부를 확인합니다.</div>
-              </div>
-            </li>
-            <li>
-              <span class="step">OUT</span>
-              <div>
-                <div class="stepname">라이트가이드 형상 최적화 제안</div>
-                <div class="stepdesc">광 균일도 개선을 위한 형상 수정안을 리포트로 전달합니다.</div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="deliver reveal">
-          <span class="tag">DELIVERABLES</span>
-          <ul>
-            <li>배광 패턴 시뮬레이션 결과 (등광도 곡선 포함)</li>
-            <li>법규 기준 충족 여부 검토 리포트</li>
-            <li>라이트가이드 형상 최적화안</li>
-            <li>휘도·광도 분포 데이터, 광 균일도 분석</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="svcblock" id="forming">
-    <div class="wrap">
-      <div class="svchead">
-        <div>
-          <span class="eyebrow">SHEET METAL FORMING · 보조 서비스</span>
-          <h2>외판 금형성형해석</h2>
-        </div>
-        <span class="svcnum">AUTOFORM-BASED STAMPING CAE</span>
-      </div>
-      <div class="svcbody">
-        <div>
-          <p class="desc">자동차 외판 부품을 프레스로 찍을 때 생기는 두께 감소, 파단, 주름, 스프링백 같은 문제를 금형 만들기 전에 시뮬레이션으로 미리 봅니다. 램프 프로젝트와 같이 진행하기도 하고, 이 작업만 따로 맡기도 합니다.</p>
-        </div>
-        <div class="deliver reveal">
-          <span class="tag">DELIVERABLES</span>
-          <ul>
-            <li>두께 감소율 / 성형한계도(FLD) 분석 결과</li>
-            <li>파단·주름 위험 구간 리포트</li>
-            <li>스프링백 예측 및 보정값</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-strip">
-    <div class="wrap">
-      <h2>진행 중인 과제가 있으신가요?</h2>
-      <a href="contact.html" class="btn btn-primary">문의하기 <span class="btn-arrow">→</span></a>
-    </div>
-  </section>
+<div class="wrap pagehead">
+<span class="eyebrow">WHAT WE DO</span>
+<h1 data-ko="자동차 램프 광학설계 및 해석">Automotive lamp optical design and analysis</h1>
+<p data-ko="배광부터 법규 대응까지, 양산 전에 해석으로 검증합니다. 램프 광학해석을 주력으로, 외판 금형성형해석을 함께 수행합니다.">From beam pattern to regulation, verified by analysis before mass production. Lamp optical analysis is our main work, with outer-panel forming analysis alongside.</p>
+</div>
+<section class="svcblock" id="optics">
+<div class="wrap">
+<div class="svchead">
+<div>
+<span class="eyebrow">AUTOMOTIVE LAMP OPTICS</span>
+<h2 data-ko="자동차 램프 광학설계 및 해석">Automotive lamp optical design and analysis</h2>
+</div>
+<span class="svcnum">SPEOS-BASED OPTICAL CAE</span>
+</div>
+<div class="svcbody">
+<div>
+<p class="desc" data-ko="인테리어 무드램프, DRL, 리어램프의 광학 시스템을 설계하고 배광 성능을 해석합니다. 특히 라이트가이드 형상 최적화를 통한 광 균일도 개선에 경험이 있습니다. 시제품을 뽑기 전에 법규 기준을 통과하는지, 의도한 디자인이 나오는지를 시뮬레이션으로 먼저 확인합니다. 라이트가이드 최적화는 형상 조정과 재해석을 여러 번 반복해야 해서, 이 과정을 가속하는 Claude 기반 내부 툴을 개발하고 있습니다.">We design the optical system of interior mood lamps, DRLs and rear lamps, and analyze its light distribution. Our particular experience is in improving light uniformity by optimizing light guide geometry. Before a prototype exists, we check by simulation whether the design passes regulations and delivers the intended look. Light guide optimization takes many rounds of geometry changes and re-analysis, so we are building an internal tool on the Claude API to speed that up.</p>
+<ul class="proc">
+<li>
+<span class="step">IN</span>
+<div>
+<div class="stepname" data-ko="광학계 사양 및 디자인 검토">Review of specs and design</div>
+<div class="stepdesc" data-ko="라이트가이드·광원 스펙, 디자인 의도를 파악합니다.">We go through the light guide and source specifications and the design intent.</div>
+</div>
+</li>
+<li>
+<span class="step">SIM</span>
+<div>
+<div class="stepname" data-ko="배광 성능 시뮬레이션">Light distribution simulation</div>
+<div class="stepdesc" data-ko="광선추적 해석으로 배광 패턴과 광도 분포를 계산합니다.">Ray tracing computes the beam pattern and the intensity distribution.</div>
+</div>
+</li>
+<li>
+<span class="step">CHK</span>
+<div>
+<div class="stepname" data-ko="법규·성능 기준 대조">Check against regulations and targets</div>
+<div class="stepdesc" data-ko="국내외 법규 기준 대비 충족 여부를 확인합니다.">We verify compliance with domestic and international regulations.</div>
+</div>
+</li>
+<li>
+<span class="step">OUT</span>
+<div>
+<div class="stepname" data-ko="라이트가이드 형상 최적화 제안">Light guide optimization proposal</div>
+<div class="stepdesc" data-ko="광 균일도 개선을 위한 형상 수정안을 리포트로 전달합니다.">A report with geometry changes that improve light uniformity.</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="deliver reveal">
+<span class="tag">DELIVERABLES</span>
+<ul>
+<li data-ko="배광 패턴 시뮬레이션 결과 (등광도 곡선 포함)">Beam pattern simulation results, including isocandela curves</li>
+<li data-ko="법규 기준 충족 여부 검토 리포트">Regulation compliance review report</li>
+<li data-ko="라이트가이드 형상 최적화안">Light guide optimization proposal</li>
+<li data-ko="휘도·광도 분포 데이터, 광 균일도 분석">Luminance and intensity distribution data, light uniformity analysis</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="svcblock" id="forming">
+<div class="wrap">
+<div class="svchead">
+<div>
+<span class="eyebrow" data-ko="SHEET METAL FORMING · 보조 서비스">SHEET METAL FORMING · SECONDARY SERVICE</span>
+<h2 data-ko="외판 금형성형해석">Outer-panel forming analysis</h2>
+</div>
+<span class="svcnum">AUTOFORM-BASED STAMPING CAE</span>
+</div>
+<div class="svcbody">
+<div>
+<p class="desc" data-ko="자동차 외판 부품을 프레스로 찍을 때 생기는 두께 감소, 파단, 주름, 스프링백 같은 문제를 금형 만들기 전에 시뮬레이션으로 미리 봅니다. 램프 프로젝트와 같이 진행하기도 하고, 이 작업만 따로 맡기도 합니다.">We look at thinning, fracture, wrinkling and springback in pressed outer panels by simulation, before the mold exists. We run it alongside a lamp project or on its own.</p>
+</div>
+<div class="deliver reveal">
+<span class="tag">DELIVERABLES</span>
+<ul>
+<li data-ko="두께 감소율 / 성형한계도(FLD) 분석 결과">Thickness reduction and forming limit diagram (FLD) results</li>
+<li data-ko="파단·주름 위험 구간 리포트">Fracture and wrinkling risk report</li>
+<li data-ko="스프링백 예측 및 보정값">Springback prediction and compensation values</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="cta-strip">
+<div class="wrap">
+<h2 data-ko="진행 중인 과제가 있으신가요?">Have a project in progress?</h2>
+<a class="btn btn-primary" data-ko='문의하기 &lt;span class="btn-arrow"&gt;→&lt;/span&gt;' href="contact.html">Contact us <span class="btn-arrow">→</span></a>
+</div>
+</section>
 </main>
-
 <footer class="site">
-  <div class="wrap footupper">
-    <div class="footcol">
-      <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
-      <p class="brandline">자동차 램프 광학설계 및 해석 · 외판 금형성형해석을 수행하는 엔지니어링 해석 기업입니다.</p>
-      <div class="footsocial" style="margin-top:16px;">
-        <a href="mailto:contact@ventron.co.kr" aria-label="이메일">@</a>
-      </div>
-    </div>
-    <div class="footcol">
-      <span class="tag">MENU</span>
-      <ul>
-        <li><a href="index.html">홈</a></li>
-        <li><a href="about.html">회사소개</a></li>
-        <li><a href="business.html">사업분야</a></li>
-        <li><a href="insights.html">소식</a></li>
-        <li><a href="contact.html">문의</a></li>
-      </ul>
-    </div>
-    <div class="footcol">
-      <span class="tag">CONTACT</span>
-      <ul>
-        <li><a href="mailto:contact@ventron.co.kr">contact@ventron.co.kr</a></li>
-        <li style="color:var(--text-dim); font-size:14px;">경기도 평택시 비전2로 195, 209-47호</li>
-        <li><a href="contact.html">문의하기 →</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="wrap footbottom">
-    <span>© 2026 Ventron. All rights reserved. · <a href="privacy/index.html">개인정보처리방침</a></span>
-    <div class="toolbadges">
-      <span>SPEOS</span><span>AutoForm</span><span>CATIA</span>
-    </div>
-  </div>
+<div class="wrap footupper">
+<div class="footcol">
+<a class="logo" href="index.html"><img alt="Ventron logo" class="mark-icon" data-ko-alt="Ventron 로고" src="img/logo-icon.jpg"/>VENTRON</a>
+<p class="brandline" data-ko="자동차 램프 광학설계·해석과 외판 금형성형해석.">Optical design and analysis for automotive lamps, and forming analysis for outer panels.</p>
+<div class="footsocial" style="margin-top:16px;">
+<a aria-label="이메일" href="mailto:contact@ventron.co.kr">@</a>
+</div>
+</div>
+<div class="footcol">
+<span class="tag">MENU</span>
+<ul>
+<li><a data-ko="홈" href="index.html">Home</a></li>
+<li><a data-ko="회사소개" href="about.html">About</a></li>
+<li><a data-ko="사업분야" href="business.html">Services</a></li>
+<li><a data-ko="소식" href="insights.html">News</a></li>
+<li><a data-ko="문의" href="contact.html">Contact</a></li>
+</ul>
+</div>
+<div class="footcol">
+<span class="tag">CONTACT</span>
+<ul>
+<li><a href="mailto:contact@ventron.co.kr">contact@ventron.co.kr</a></li>
+<li data-ko="경기도 평택시 비전2로 195, 209-47호" style="color:var(--text-dim); font-size:14px;">195, Bijeon 2-ro, Pyeongtaek-si, Gyeonggi-do, Korea (Room 209-47)</li>
+<li><a data-ko="문의하기 →" href="contact.html">Contact us →</a></li>
+</ul>
+</div>
+</div>
+<div class="wrap footbottom">
+<span>© 2026 Ventron. All rights reserved. · <a data-ko="개인정보처리방침" href="privacy/index.html">Privacy policy</a></span>
+<div class="toolbadges">
+<span>SPEOS</span><span>AutoForm</span><span>CATIA</span>
+</div>
+</div>
 </footer>
-
-<script src="script.js" defer></script>
-
+<script defer="" src="script.js"></script><script defer="" src="lang.js"></script>
 </body>
 </html>

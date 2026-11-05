@@ -1,91 +1,86 @@
 <!DOCTYPE html>
-<html lang="ko">
+
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>소식 | 벤트론 Ventron</title>
-<meta name="description" content="벤트론의 기술 노트와 프로젝트 소식.">
-<link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-ko="소식 | 벤트론 Ventron">News | Ventron</title>
+<meta content="Technical notes and project news from Ventron." data-ko-content="벤트론의 기술 노트와 프로젝트 소식." name="description"/>
+<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-
 <header class="site">
-  <div class="nav">
-    <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
-    <button class="navtoggle" aria-label="메뉴 열기" onclick="this.classList.toggle('open');document.querySelector('.navlinks').classList.toggle('open');document.body.classList.toggle('menu-lock');window.scrollTo(0,0)">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="navlinks">
-      <a href="index.html">홈</a>
-      <a href="about.html">회사소개</a>
-      <a href="business.html">사업분야</a>
-      <a href="insights.html" class="active">소식</a>
-      <a href="contact.html">문의</a>
-    </div>
-  </div>
+<div class="nav">
+<a class="logo" href="index.html"><img alt="Ventron logo" class="mark-icon" data-ko-alt="Ventron 로고" src="img/logo-icon.jpg"/>VENTRON</a>
+<button aria-label="Open menu" class="navtoggle" data-ko-aria-label="메뉴 열기" onclick="this.classList.toggle('open');document.querySelector('.navlinks').classList.toggle('open');document.body.classList.toggle('menu-lock');window.scrollTo(0,0)">
+<span></span><span></span><span></span>
+</button>
+<div class="navlinks">
+<a data-ko="홈" href="index.html">Home</a>
+<a data-ko="회사소개" href="about.html">About</a>
+<a data-ko="사업분야" href="business.html">Services</a>
+<a class="active" data-ko="소식" href="insights.html">News</a>
+<a data-ko="문의" href="contact.html">Contact</a>
+</div>
+</div>
 </header>
-
 <main>
-  <div class="wrap pagehead">
-    <span class="eyebrow">INSIGHTS</span>
-    <h1>소식</h1>
-    <p>벤트론이 다루는 해석 사례와 기술적인 내용을 정리합니다.</p>
-  </div>
-
-  <section>
-    <div class="wrap">
-      <!-- 새 글이 생기면 이 postrow 블록을 맨 위에 복사해서 추가하세요 -->
-      <div class="postlist reveal">
-        <a class="postrow" href="posts/01-fld-thickness-check.html">
-          <span class="postdate">2026.08.12</span>
-          <div class="postmain">
-            <h3>성형한계도(FLD)로 두께 감소를 미리 보는 법</h3>
-            <p>프레스 성형 시뮬레이션에서 파단 위험 구간을 판단하는 기준을 정리합니다.</p>
-          </div>
-          <span class="postarrow">읽기 →</span>
-        </a>
-      </div>
-    </div>
-  </section>
+<div class="wrap pagehead">
+<span class="eyebrow">INSIGHTS</span>
+<h1 data-ko="소식">News</h1>
+<p data-ko="벤트론이 다루는 해석 사례와 기술적인 내용을 정리합니다.">Analysis cases and technical notes from Ventron.</p>
+</div>
+<section>
+<div class="wrap">
+<!-- 새 글이 생기면 이 postrow 블록을 맨 위에 복사해서 추가하세요 -->
+<div class="postlist reveal">
+<a class="postrow" href="posts/01-fld-thickness-check.html">
+<span class="postdate">2026.08.12</span>
+<div class="postmain">
+<h3 data-ko="성형한계도(FLD)로 두께 감소를 미리 보는 법">Previewing thickness reduction with a forming limit diagram</h3>
+<p data-ko="프레스 성형 시뮬레이션에서 파단 위험 구간을 판단하는 기준을 정리합니다.">How to judge fracture-risk zones in press forming simulation.</p>
+</div>
+<span class="postarrow" data-ko="읽기 →">Read →</span>
+</a>
+</div>
+</div>
+</section>
 </main>
-
 <footer class="site">
-  <div class="wrap footupper">
-    <div class="footcol">
-      <a href="index.html" class="logo"><img src="img/logo-icon.jpg" alt="Ventron 로고" class="mark-icon">VENTRON</a>
-      <p class="brandline">자동차 램프 광학설계 및 해석 · 외판 금형성형해석을 수행하는 엔지니어링 해석 기업입니다.</p>
-      <div class="footsocial" style="margin-top:16px;">
-        <a href="mailto:contact@ventron.co.kr" aria-label="이메일">@</a>
-      </div>
-    </div>
-    <div class="footcol">
-      <span class="tag">MENU</span>
-      <ul>
-        <li><a href="index.html">홈</a></li>
-        <li><a href="about.html">회사소개</a></li>
-        <li><a href="business.html">사업분야</a></li>
-        <li><a href="insights.html">소식</a></li>
-        <li><a href="contact.html">문의</a></li>
-      </ul>
-    </div>
-    <div class="footcol">
-      <span class="tag">CONTACT</span>
-      <ul>
-        <li><a href="mailto:contact@ventron.co.kr">contact@ventron.co.kr</a></li>
-        <li style="color:var(--text-dim); font-size:14px;">경기도 평택시 비전2로 195, 209-47호</li>
-        <li><a href="contact.html">문의하기 →</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="wrap footbottom">
-    <span>© 2026 Ventron. All rights reserved. · <a href="privacy/index.html">개인정보처리방침</a></span>
-    <div class="toolbadges">
-      <span>SPEOS</span><span>AutoForm</span><span>CATIA</span>
-    </div>
-  </div>
+<div class="wrap footupper">
+<div class="footcol">
+<a class="logo" href="index.html"><img alt="Ventron logo" class="mark-icon" data-ko-alt="Ventron 로고" src="img/logo-icon.jpg"/>VENTRON</a>
+<p class="brandline" data-ko="자동차 램프 광학설계·해석과 외판 금형성형해석.">Optical design and analysis for automotive lamps, and forming analysis for outer panels.</p>
+<div class="footsocial" style="margin-top:16px;">
+<a aria-label="이메일" href="mailto:contact@ventron.co.kr">@</a>
+</div>
+</div>
+<div class="footcol">
+<span class="tag">MENU</span>
+<ul>
+<li><a data-ko="홈" href="index.html">Home</a></li>
+<li><a data-ko="회사소개" href="about.html">About</a></li>
+<li><a data-ko="사업분야" href="business.html">Services</a></li>
+<li><a data-ko="소식" href="insights.html">News</a></li>
+<li><a data-ko="문의" href="contact.html">Contact</a></li>
+</ul>
+</div>
+<div class="footcol">
+<span class="tag">CONTACT</span>
+<ul>
+<li><a href="mailto:contact@ventron.co.kr">contact@ventron.co.kr</a></li>
+<li data-ko="경기도 평택시 비전2로 195, 209-47호" style="color:var(--text-dim); font-size:14px;">195, Bijeon 2-ro, Pyeongtaek-si, Gyeonggi-do, Korea (Room 209-47)</li>
+<li><a data-ko="문의하기 →" href="contact.html">Contact us →</a></li>
+</ul>
+</div>
+</div>
+<div class="wrap footbottom">
+<span>© 2026 Ventron. All rights reserved. · <a data-ko="개인정보처리방침" href="privacy/index.html">Privacy policy</a></span>
+<div class="toolbadges">
+<span>SPEOS</span><span>AutoForm</span><span>CATIA</span>
+</div>
+</div>
 </footer>
-
-<script src="script.js" defer></script>
-
+<script defer="" src="script.js"></script><script defer="" src="lang.js"></script>
 </body>
 </html>

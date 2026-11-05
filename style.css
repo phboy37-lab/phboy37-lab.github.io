@@ -721,3 +721,7 @@ body.intro-lock{ overflow: hidden; height: 100vh; }
   margin-bottom: 8px;
 }
 .article .backlink:hover{ color: var(--accent-cyan); }
+
+/* language switch */
+.langbtn{background:none;border:1px solid var(--border);color:var(--text-dim);font:500 12px var(--font-mono);padding:6px 12px;border-radius:99px;cursor:pointer;margin-left:8px;transition:color .2s,border-color .2s}
+.langbtn:hover{color:var(--text);border-color:var(--accent-cyan)}
